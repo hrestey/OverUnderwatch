@@ -1,0 +1,12 @@
+team(seoul).
+team(london).
+team(newyork).
+team(dallas).
+team(shanghai).
+team(lavaliant).
+team(lagladiators).
+team(boston).
+team(florida).
+team(houston).
+team(sanfranscisco).
+team(philadelphia).
