@@ -1,6 +1,24 @@
+:- [teams].
 
-record(Team, Wins, Losses).
+match(Winner, Team1, Team2, MapScore).
 
-teamStanding(Team, Place, Record, MapDifferential, HeadToHeadOwner).
+unplayedMatch(Team1, Team2).
 
-stagePlayoffTeams(PlayoffTeams,
+schedule(Matches).
+
+record(Team, Wins, Losses, MapDifferential).
+
+headToHead(Team1, Team2, Winner).
+
+compareRecords(Record1, Record2, BetterRecord) :-
+    .
+
+teamStandings([], [_]).
+teamStandings(Records, Standings, FinalStandings) :-
+    select(Record, Records, RemainingRecords),
+    .
+teamStandings(Records, [], Standings):-
+    select(Record, Records, RemainingRecords),
+    teamStandings(RemainingRecords, [Record], Standings).
+
+
