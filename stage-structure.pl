@@ -17,9 +17,9 @@ compareRecords(Record1, Record2, BetterRecord) :-
 teamStandings([], [_]).
 teamStandings(Records, Standings, FinalStandings) :-
     select(Record, Records, RemainingRecords),
-    .
+    compareRecords(Record, [BestRecord|RemainingStandings], BetterRecord), % if the best record is better than the Record being compared to it, call teamStandings on the Record and Remaining records
+    teamStandings(Record, RemainingStandings, UpdatedStandings).
 teamStandings(Records, [], Standings):-
     select(Record, Records, RemainingRecords),
     teamStandings(RemainingRecords, [Record], Standings).
-
 
