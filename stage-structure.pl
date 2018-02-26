@@ -1,33 +1,42 @@
 :- [teams].
 
-matchScore(Winner, Team1, Team2, MapScore).
+/*matchScore(Winner, Team1, Team2, MapScore).
 
 match(matchScore(Winner, Team1, Team2, MapScore), Stage, Week).
 
 unplayedMatch(Team1, Team2).
 
-schedule(Matches).
+schedule(Matches).*/
 
-record(Team, Wins, Losses, MapDifferential).
+%record(team(TeamName), Wins, Losses, MapDifferential).
+%Examples:
+%record(team(dallas), 10, 20, 5).
+%record(team(seoul), 11, 5, 7).
 
-headToHeadMapDiff(Team1, Team2, HeadToHeadOwner).
-headToHeadMapDiff(Team1, Team2, tie).
+/*headToHeadMapDiff(Team1, Team2, HeadToHeadOwner) :-
+    .
+/*headToHeadMapDiff(Team1, Team2, tie).
 
 headToHead(Team1, Team2, Winner).
 headToHead(Team1, Team2, tie).
 
-tieBreakerMatch(Team1, Team2, Winner).
+tieBreakerMatch(Team1, Team2, Winner).*/
 
-endOfStage(Wins, Losses). % checks if the Wins and Losses added together is evenly divisible by 10 (therefore end of stage)
+endOfStage(Wins, Losses) :-
+    Sum is Wins + Losses,
+    Result is Sum mod 10,
+    Result = 0. % checks if the Wins and Losses added together is evenly divisible by 10 (therefore end of stage)
 
 compareRecords(>, Record1, Record2) :-
-    record(team(Team1), W1, L1, MD1), record(team(Team2), W2, L2, MD2),
+    Record1 = record(team(Team1), W1, L1, MD1), 
+    Record2 = record(team(Team2), W2, L2, MD2),
     W1 > W2.
 compareRecords(>, Record1, Record2) :-
-    record(team(Team1), W1, L1, MD1), record(team(Team2), W2, L2, MD2),
+    Record1 = record(team(Team1), W1, L1, MD1),
+    Record2 = record(team(Team2), W2, L2, MD2),
     W1 = W2,
     MD1 > MD2.
-compareRecords(>, Record1, Record2) :-
+/*compareRecords(>, Record1, Record2) :-
     record(team(Team1), W1, L1, MD1), record(team(Team2), W2, L2, MD2),
     W1 = W2,
     MD1 = MD2,
@@ -52,16 +61,11 @@ compareRecords(=, Record1, Record2) :-
     MD1 = MD2,
     headToHeadMadDiff(Team1, Team2, tie),
     headToHead(Team1, Team2, tie),
-    /=endOfStage(W1, L1).
+    \+endOfStage(W1, L1).*/
 compareRecords(<, Team1, Team2) :-
     compareRecords(>, Team2, Team1).
 
-teamStandings([], [_]).
-teamStandings(Records, Standings, FinalStandings) :-
-    select(Record, Records, RemainingRecords),
-    compareRecords(Record, [BestRecord|RemainingStandings], BetterRecord), % if the best record is better than the Record being compared to it, call teamStandings on the Record and Remaining records
-    teamStandings(Record, RemainingStandings, UpdatedStandings).
-teamStandings(Records, [], Standings):-
-    select(Record, Records, RemainingRecords),
-    teamStandings(RemainingRecords, [Record], Standings).
+teamStandings(Records, Standings) :-
+    predsort(compareRecords, Records, Standings).
+
 
