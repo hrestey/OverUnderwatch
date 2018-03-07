@@ -6,21 +6,23 @@ match(matchScore(Winner, Team1, Team2, MapScore), Stage, Week).
 
 unplayedMatch(Team1, Team2).
 
-schedule(Matches).*/
+schedule(Matches).
 
-%record(team(TeamName), Wins, Losses, MapDifferential).
-%Examples:
-%record(team(dallas), 10, 20, 5).
-%record(team(seoul), 11, 5, 7).
+record(team(TeamName), Wins, Losses, MapDifferential).
+Examples:
+record(team(dallas), 10, 20, 5).
+record(team(seoul), 11, 5, 7).
+*/
+%headToHeadMapDiff(Team1, Team2, HeadToHeadOwner) :-
+%    .
+%headToHeadMapDiff(Team1, Team2, tie).
 
-/*headToHeadMapDiff(Team1, Team2, HeadToHeadOwner) :-
-    .
-/*headToHeadMapDiff(Team1, Team2, tie).
-
-headToHead(Team1, Team2, Winner).
+/*headToHead(Team1, Team2, Winner).
 headToHead(Team1, Team2, tie).
 
 tieBreakerMatch(Team1, Team2, Winner).*/
+
+headToHead(
 
 endOfStage(Wins, Losses) :-
     Sum is Wins + Losses,
@@ -36,12 +38,12 @@ compareRecords(>, Record1, Record2) :-
     Record2 = record(team(Team2), W2, L2, MD2),
     W1 = W2,
     MD1 > MD2.
-/*compareRecords(>, Record1, Record2) :-
+compareRecords(>, Record1, Record2) :-
     record(team(Team1), W1, L1, MD1), record(team(Team2), W2, L2, MD2),
     W1 = W2,
     MD1 = MD2,
     headToHeadMapDiff(Team1, Team2, Team1). % Head to Head Map Differential in favor of Team1
-compareRecords(>, Record1, Record2) :-
+/*compareRecords(>, Record1, Record2) :-
     record(team(Team1), W1, L1, MD1), record(team(Team2), W2, L2, MD2),
     W1 = W2,
     MD1 = MD2,
