@@ -41,8 +41,7 @@ headToHead(X, Y, tie) :- X @> Y, headToHead(Y, X, tie).
 
 endOfStage(Wins, Losses) :-
     Sum is Wins + Losses,
-    Result is Sum mod 10,
-    Result = 0. % checks if the Wins and Losses added together is evenly divisible by 10 (therefore end of stage)
+    Sum = 10. 
 
 compareRecords(>, Record1, Record2) :-
     Record1 = record(team(_), W1, _, _), 
@@ -98,7 +97,6 @@ assignStandings(N, [H|T], [(N, H)|Rest]) :-
 
 teamStandings(Records, Standings) :-
     predsort(compareRecords, Records, SortedRecords),
-    %reverse(SortedRecords, AscendingRecords). % reverse order of records so that they are ascending
     % group teams by their records, so we can establish standings
     findall(Teams, bagof(Team, member(record(Team, _, _, _), SortedRecords), Teams), GroupedRecords),
     reverse(GroupedRecords, AscendingRecords),
