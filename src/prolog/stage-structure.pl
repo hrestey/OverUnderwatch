@@ -23,18 +23,11 @@ headToHead(Team1, Team2, tie).
 tieBreakerMatch(Team1, Team2, Winner).*/
 
 % the two teams (first two values) must be alphabetically sorted
-headToHeadMapDiff(dallas, seoul, seoul).
-headToHeadMapDiff(houston, london, tie).
-headToHeadMapDiff(dallas, florida, tie).
-headToHeadMapDiff(dallas, newyork, tie).
 % if called out-of-order (alphabetically), flip
 headToHeadMapDiff(X, Y, X) :- X @> Y, headToHeadMapDiff(Y, X, X).
 headToHeadMapDiff(X, Y, tie) :- X @> Y, headToHeadMapDiff(Y, X, tie).
 
 % the two teams (first two values) must be alphabetically sorted
-headToHead(dallas, florida, dallas).
-headToHead(houston, london, tie).
-headToHead(dallas, newyork, tie).
 % if called out-of-order (alphabetically), flip
 headToHead(X, Y, X) :- X @> Y, headToHead(Y, X, X).
 headToHead(X, Y, tie) :- X @> Y, headToHead(Y, X, tie).
@@ -73,6 +66,7 @@ compareRecords(>, Record1, Record2) :- % should be restricted to only at the end
     headToHeadMapDiff(Team1, Team2, tie),
     headToHead(Team1, Team2, tie),
     endOfStage(W1, L1),
+    tieBreakerMatchPlayed(Team1, Team2, true),
     tieBreakerMatch(Team1, Team2, Team1).
 % tie case
 compareRecords(>, Record1, Record2) :-
@@ -100,6 +94,6 @@ teamStandings(Records, Standings) :-
     % group teams by their records, so we can establish standings
     findall(Teams, bagof(Team, member(record(Team, _, _, _), SortedRecords), Teams), GroupedRecords),
     reverse(GroupedRecords, AscendingRecords),
-    assignStandings(1, AscendingRecords, Standings).
+    assignStandings(1, AscendingRecords, Standings), !.
 
 
