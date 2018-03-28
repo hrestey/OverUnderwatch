@@ -66,7 +66,7 @@ compareRecords(>, Record1, Record2) :- % should be restricted to only at the end
     headToHeadMapDiff(Team1, Team2, tie),
     headToHead(Team1, Team2, tie),
     endOfStage(W1, L1),
-    tieBreakerMatchPlayed(Team1, Team2, true),
+    tieBreakerMatchPlayed(Team1, Team2),
     tieBreakerMatch(Team1, Team2, Team1).
 % tie case
 compareRecords(>, Record1, Record2) :-

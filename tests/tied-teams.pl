@@ -25,7 +25,7 @@ headToHead(lagladiators, lavaliant, tie).
 headToHead(lagladiators, seoul, tie).
 headToHead(lagladiators, london, tie).
 headToHead(lagladiators, houston, tie).
-headToHead(lagladatiors, boston, tie).
+headToHead(lagladiators, boston, tie).
 headToHead(lagladiators, philadelphia, tie).
 headToHead(lagladiators, shanghai, tie).
 headToHead(lagladiators, sanfrancisco, tie).
@@ -47,6 +47,10 @@ headToHead(seoul, sanfrancisco, tie).
 headToHead(seoul, newyork, tie).
 headToHead(london, houston, tie).
 headToHead(london, boston, tie).
+headToHead(london, philadelphia, tie).
+headToHead(london, shanghai, tie).
+headToHead(london, sanfrancisco, tie).
+headToHead(london, newyork, tie).
 headToHead(houston, philadelphia, tie).
 headToHead(houston, shanghai, tie).
 headToHead(houston, sanfrancisco, tie).
@@ -61,6 +65,10 @@ headToHead(philadelphia, newyork, tie).
 headToHead(shanghai, sanfrancisco, tie).
 headToHead(shanghai, newyork, tie).
 headToHead(sanfrancisco, newyork, tie).
+
+headToHead(X, Y, X) :- X @> Y, headToHead(Y, X, X).
+headToHead(X, Y, tie) :- X @> Y, headToHead(Y, X, tie).
+
 
 headToHeadMapDiff(dallas, florida, tie).
 headToHeadMapDiff(dallas, lagladiators, tie).
@@ -87,7 +95,7 @@ headToHeadMapDiff(lagladiators, lavaliant, tie).
 headToHeadMapDiff(lagladiators, seoul, tie).
 headToHeadMapDiff(lagladiators, london, tie).
 headToHeadMapDiff(lagladiators, houston, tie).
-headToHeadMapDiff(lagladatiors, boston, tie).
+headToHeadMapDiff(lagladiators, boston, tie).
 headToHeadMapDiff(lagladiators, philadelphia, tie).
 headToHeadMapDiff(lagladiators, shanghai, tie).
 headToHeadMapDiff(lagladiators, sanfrancisco, tie).
@@ -128,3 +136,6 @@ headToHeadMapDiff(philadelphia, newyork, tie).
 headToHeadMapDiff(shanghai, sanfrancisco, tie).
 headToHeadMapDiff(shanghai, newyork, tie).
 headToHeadMapDiff(sanfrancisco, newyork, tie).
+
+headToHeadMapDiff(X, Y, X) :- X @> Y, headToHeadMapDiff(Y, X, X).
+headToHeadMapDiff(X, Y, tie) :- X @>Y, headToHeadMapDiff(Y, X, tie).
