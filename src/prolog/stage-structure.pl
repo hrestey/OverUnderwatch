@@ -74,13 +74,13 @@ compareRecords(>, Record1, Record2) :-
     \+member(Team2, HtHMD1),
     \+member(Team1, HtHMD2),
     \+member(Team2, HtHR1),
-    \+member(Team1, HtHR1),
+    \+member(Team1, HtHR2),
     \+endOfStage(W1, L1),
     % ensure alphabetical order of team names
     Team1 @> Team2.
-compareRecords(>, Record1, REcord2) :-
+compareRecords(>, Record1, Record2) :-
     Record1 = record(team(Team1), W1, L1, MD1, HtHMD1, HtHR1),
-    Record2 = record(team(Team2), W2, _, MD1, HtHMD1, HtHR1),
+    Record2 = record(team(Team2), W2, _, MD2, HtHMD2, HtHR2),
     W1 = W2,
     MD1 = MD2,
     \+member(Team2, HtHMD1),
