@@ -102,7 +102,7 @@ assignStandings(N, [H|T], [(N, H)|Rest]) :-
 teamStandings(Records, Standings) :-
     predsort(compareRecords, Records, SortedRecords),
     % group teams by their records, so we can establish standings
-    findall(Teams, bagof(Team, member(record(Team, _, _, _), SortedRecords), Teams), GroupedRecords),
+    findall(Teams, bagof(Team, member(record(Team, _, _, _, [_], [_]), SortedRecords), Teams), GroupedRecords),
     reverse(GroupedRecords, AscendingRecords),
     assignStandings(1, AscendingRecords, Standings), !.
 
