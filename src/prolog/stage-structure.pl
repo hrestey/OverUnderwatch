@@ -40,8 +40,8 @@ compareRecords(>, Record1, Record2) :-
     W1 = W2,
     MD1 > MD2.
 compareRecords(>, Record1, Record2) :-
-    Record1 = record(team(_), W1, _, MD1, HtHMD1, [_]), [_],
-    Record2 = record(team(Team2), W2, _, MD2, [_],[_]), [_],
+    Record1 = record(team(_), W1, _, MD1, HtHMD1, [_], [_]),
+    Record2 = record(team(Team2), W2, _, MD2, [_],[_], [_]),
     W1 = W2,
     MD1 = MD2,
     member(Team2, HtHMD1). % Head to Head Map Differential in favor of Team1
