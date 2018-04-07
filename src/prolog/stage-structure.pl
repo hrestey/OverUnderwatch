@@ -1,4 +1,5 @@
 :- [teams].
+:- [predsort2].
 
 /*matchScore(Winner, Team1, Team2, MapScore).
 
@@ -65,7 +66,7 @@ compareRecords(>, Record1, Record2) :- % should be restricted to only at the end
     endOfStage(W1, L1),
     member(Team2, TieBreakers).
 % tie cases
-compareRecords(>, Record1, Record2) :-
+compareRecords(=, Record1, Record2) :-
     Record1 = record(team(Team1), W1, L1, MD1, HtHMD1, HtHR1, [_]),
     Record2 = record(team(Team2), W2, _, MD2, HtHMD2, HtHR2, [_]),
     W1 = W2,
@@ -77,7 +78,7 @@ compareRecords(>, Record1, Record2) :-
     \+endOfStage(W1, L1),
     % ensure alphabetical order of team names
     Team1 @> Team2.
-compareRecords(>, Record1, Record2) :-
+compareRecords(=, Record1, Record2) :-
     Record1 = record(team(Team1), W1, L1, MD1, HtHMD1, HtHR1, TieBreakers1),
     Record2 = record(team(Team2), W2, _, MD2, HtHMD2, HtHR2, TieBreakers2),
     W1 = W2,
@@ -100,9 +101,11 @@ assignStandings(N, [H|T], [(N, H)|Rest]) :-
     assignStandings(N2, T, Rest).
 
 teamStandings(Records, Standings) :-
-    predsort(compareRecords, Records, SortedRecords),
+    print(Records), nl,
+    predsort2(compareRecords, Records, SortedRecords),
+    print(SortedRecords), nl,
     % group teams by their records, so we can establish standings
-    findall(Teams, bagof(Team, member(record(Team, _, _, _, [_], [_], [_]), SortedRecords), Teams), GroupedRecords),
+    findall(Teams, bagof(Team, member(record(Team, A, B, C, D, E, F), SortedRecords), Teams), GroupedRecords),
     reverse(GroupedRecords, AscendingRecords),
     assignStandings(1, AscendingRecords, Standings), !.
 
