@@ -48,15 +48,15 @@ test(teamStandings) :-
     record(team(london), 7, 1, 15, [none], [none], [none])],
     [(1,[team(newyork)]),
     (2,[team(houston),team(london)]),
-    (3,[team(lavaliant)]),
-    (4,[team(seoul)]),
-    (5,[team(boston)]),
-    (6,[team(philadelphia)]),
-    (7,[team(lagladiators)]),
-    (8,[team(sanfrancisco)]),
-    (9,[team(dallas)]),
-    (10,[team(florida)]),
-    (11,[team(shanghai)])]).
+    (4,[team(lavaliant)]),
+    (5,[team(seoul)]),
+    (6,[team(boston)]),
+    (7,[team(philadelphia)]),
+    (8,[team(lagladiators)]),
+    (9,[team(sanfrancisco)]),
+    (10,[team(dallas)]),
+    (11,[team(florida)]),
+    (12,[team(shanghai)])]).
 test(teamStandings) :-
     teamStandings([record(team(seoul), 6, 0, 14, [none], [none], [none]),
     record(team(newyork), 5, 1, 15, [none], [none], [none]),
@@ -110,8 +110,8 @@ test(teamStandings) :-
     record(team(philadelphia), 0, 2, -3, [none], [none], [none]),
     record(team(florida), 0, 2, -4, [none], [none], [none]),
     record(team(dallas), 0, 2, -1, [none], [none], [none])],
-    [(1, [team(london),team(newyork),team(seoul)]), (2, [team(boston)]), (3, [team(houston),team(lagladiators),team(lavaliant)]), (4, [team(dallas)]),
-    (5, [team(philadelphia)]), (6, [team(florida)]), (7, [team(sanfrancisco),team(shanghai)])]).
+    [(1, [team(london),team(newyork),team(seoul)]), (4, [team(boston)]), (5, [team(houston),team(lagladiators),team(lavaliant)]), (8, [team(dallas)]),
+    (9, [team(philadelphia)]), (10, [team(florida)]), (11, [team(sanfrancisco),team(shanghai)])]).
 test(teamStandings) :-
     teamStandings([record(team(seoul), 4, 0, 10, [none], [none], [none]),
     record(team(philadelphia), 3, 1, 5, [none], [none], [none]),
@@ -125,7 +125,35 @@ test(teamStandings) :-
     record(team(newyork), 3, 1, 9, [none], [none], [none]),
     record(team(sanfrancisco), 1, 3, -4, [none], [none], [none]),
     record(team(lagladiators), 2, 2, 4, [none], [none], [none])],
-    [(1, [team(seoul)]), (2, [team(london)]), (3, [team(newyork)]), (4, [team(philadelphia)]), (5, [team(lavaliant)]), (6, [team(lagladiators)]), (7, [team(houston), team(dallas)]),
-    (8, [team(sanfrancisco)]), (9, [team(boston)]), (10, [team(florida)]), (11, [team(shanghai)])]). 
+    [(1, [team(seoul)]), (2, [team(london)]), (3, [team(newyork)]), (4, [team(philadelphia)]), (5, [team(lavaliant)]), (6, [team(lagladiators)]), (7, [team(dallas), team(houston)]),
+    (9, [team(sanfrancisco)]), (10, [team(boston)]), (11, [team(florida)]), (12, [team(shanghai)])]).
+test(teamStandings) :-
+    teamStandings([record(team(boston), 6, 4, -1, [florida, shanghai, dallas, lavaliant, sanfrancisco, lagladiators], [florida, shanghai, dallas, lavaliant, sanfrancisco, lagladiators], [none]),
+    record(team(philadelphia), 7, 3, 12, [boston, florida, houston, shanghai, dallas, lagladiators, lavaliant], [boston, florida, houston, shanghai, dallas, lagladiators, lavaliant], [none]),
+    record(team(seoul), 7, 3, 9, [lavaliant, sanfrancisco, dallas, lagladiators, shanghai, philadelphia, florida], [lavaliant, sanfrancisco, dallas, lagladiators, shanghai, philadelphia, florida],
+        [none]),
+    record(team(dallas), 2, 8, -15, [shanghai, lagladiators], [shanghai, lagladiators], [none]),
+    record(team(lagladiators), 6, 4, 9, [sanfrancisco, shanghai, lavaliant, london, houston, florida], [sanfrancisco, shanghai, lavaliant, london, houston, florida], [none]),
+    record(team(lavaliant), 4, 6, -5, [shanghai, sanfrancisco, dallas, houston], [shanghai, sanfrancisco, dallas, houston], [none]),
+    record(team(florida), 3, 7, -12, [lavaliant, dallas, sanfrancisco], [lavaliant, dallas, sanfrancisco]),
+    record(team(london), 8, 2, 20, [newyork, florida, philadelphia, boston, sanfrancisco, seoul, shanghai, dallas], [newyork, florida, philadelphia, boston, sanfrancisco, seoul, shanghai, dallas],
+        [none]),
+    record(team(sanfrancisco), 3, 7, -7, [shanghai, dallas, houston], [shanghai, dallas, houston], [none]),
+    record(team(shanghai), 0, 10, -35, [none], [none], [none]),
+    record(team(houston), 5, 5, 0, [london, boston, florida, shanghai, seoul], [london, boston, florida, shanghai, seoul], [none]),
+    record(team(newyork), 9, 1, 25, [florida, boston, houston, philadelphia, sanfrancisco, seoul, shanghai, dallas, lavaliant], [florida, boston, houston, philadelphia, sanfrancisco,
+        seoul, shanghai, dallas, lavaliant], [none])],
+    [(1, [team(newyork)]),
+    (2, [team(london)]),
+    (3, [team(philadelphia)]),
+    (4, [team(seoul)]),
+    (5, [team(lagladiators)]),
+    (6, [team(boston)]),
+    (7, [team(houston)]),
+    (8, [team(lavaliant)]),
+    (9, [team(sanfrancisco)]),
+    (10, [team(florida)]),
+    (11, [team(dallas)]),
+    (12, [team(shanghai)])]).
 
 :- end_tests('../src/prolog/stage-structure').

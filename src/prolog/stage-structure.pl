@@ -66,18 +66,12 @@ compareRecords(>, Record1, Record2) :- % should be restricted to only at the end
     member(Team2, TieBreakers).
 % tie cases
 compareRecords(>, Record1, Record2) :-
-    Record1 = record(team(Team1), W1, L1, MD1, HtHMD1, HtHR1, [_]),
-    Record2 = record(team(Team2), W2, _, MD2, HtHMD2, HtHR2, [_]),
-    W1 = W2,
-    MD1 = MD2,
-    \+member(Team2, HtHMD1),
-    \+member(Team1, HtHMD2),
-    \+member(Team2, HtHR1),
-    \+member(Team1, HtHR2),
-    \+endOfStage(W1, L1),
+    tied(Record1, Record2),
+    Record1 = record(team(Team1), _, _, _, [_], [_], [_]),
+    Record2 = record(team(Team2), _, _, _, [_], [_], [_]),
     % ensure alphabetical order of team names
-    Team1 @> Team2.
-compareRecords(>, Record1, Record2) :-
+    Team2 @> Team1.
+/*compareRecords(>, Record1, Record2) :-
     Record1 = record(team(Team1), W1, L1, MD1, HtHMD1, HtHR1, TieBreakers1),
     Record2 = record(team(Team2), W2, _, MD2, HtHMD2, HtHR2, TieBreakers2),
     W1 = W2,
@@ -89,7 +83,7 @@ compareRecords(>, Record1, Record2) :-
     endOfStage(W1, L1),
     \+member(Team2, TieBreakers1),
     \+member(Team1, TieBreakers2),
-    Team1 @> Team2.
+    Team2 @> Team1.*/
 compareRecords(<, Team1, Team2) :-
     compareRecords(>, Team2, Team1).
 
@@ -101,7 +95,7 @@ assignStandings(N, [H|T], [(N, H)|Rest]) :-
 
 tied(Record1, Record2) :-
     Record1 = record(team(Team1), W1, _, MD1, HtHMD1, HtHR1, TieBreakers1),
-    Record1 = record(team(Team2), W2, _, MD2, HtHMD1, HtHR2, TieBreakers2),
+    Record2 = record(team(Team2), W1, _, MD1, HtHMD2, HtHR2, TieBreakers2),
     \+member(Team2, HtHMD1),
     \+member(Team1, HtHMD2),
     \+member(Team2, HtHR1),
@@ -109,35 +103,29 @@ tied(Record1, Record2) :-
     \+member(Team2, TieBreakers1),
     \+member(Team1, TieBreakers2).
 
-groupTeams([Record], []) :-
-    Record = record(team(Team), _, _, _, [_], [_], [_]).
 groupTeams(Record1, Record2, [Record3|Records], NumTeams, UpdatedNumTeams, RemainingRecords, [team(Team1)|GroupedTeams]) :-
     Record1 = record(team(Team1), _, _, _, [_], [_], [_]),
     tied(Record1, Record3),
     NewNum is NumTeams + 1,
     groupTeams(Record2, Record3, Records, NewNum, UpdatedNumTeams, RemainingRecords, GroupedTeams).
-groupTeams(Record1, Record2, Records, NumTeams, NumTeams, Records, [team(Team1),team(Team2)|_]).
+groupTeams(Record1, Record2, Records, NumTeams, NumTeams, Records, [team(Team1),team(Team2)]) :-
+    Record1 = record(team(Team1), _, _, _, [_], [_], [_]),
+    Record2 = record(team(Team2), _, _, _, [_], [_], [_]).
 
-assignStandings2(_, [], [_]).
+assignStandings2(_, [], []).
 assignStandings2(Rank, [Record1,Record2|Records], [(Rank, GroupedTeams)|Rest]) :-
     tied(Record1, Record2),
     groupTeams(Record1, Record2, Records, 2, NumTeams, RemainingRecords, GroupedTeams),
     NewRank is Rank + NumTeams,
     assignStandings2(NewRank, RemainingRecords, Rest).
-assignStandings2(Rank, [Record|Records], [(Rank, [team(Team)]|Rest]) :-
+assignStandings2(Rank, [Record|Records], [(Rank, [team(Team)])|Rest]) :-
     Record = record(team(Team), _, _, _, [_], [_], [_]),
     NewRank is Rank + 1,
     assignStandings2(NewRank, Records, Rest).
 
 teamStandings(Records, Standings) :-
-    print(Records), nl,
     predsort(compareRecords, Records, SortedRecords),
-    print(SortedRecords), nl,
-    % group teams by their records, so we can establish standings
-    %findall(Teams, bagof(Team, member(record(Team, A, B, C, D, E, F), SortedRecords), Teams), GroupedRecords),
     reverse(SortedRecords, ReversedSortedRecords),
-    print(GroupedRecords), nl,
-    %reverse(GroupedRecords, AscendingRecords),
-    assignStandings(1, GroupedRecords, Standings), !.
+    assignStandings2(1, ReversedSortedRecords, Standings), !.
 
 
