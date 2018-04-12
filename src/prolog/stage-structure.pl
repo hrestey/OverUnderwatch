@@ -1,29 +1,5 @@
 :- [teams].
 
-/*matchScore(Winner, Team1, Team2, MapScore).
-
-match(matchScore(Winner, Team1, Team2, MapScore), Stage, Week).
-
-unplayedMatch(Team1, Team2).
-
-schedule(Matches).
-
-record(team(TeamName), Wins, Losses, MapDifferential).
-Examples:
-record(team(dallas), 10, 20, 5).
-record(team(seoul), 11, 5, 7).
-
-
-% the two teams (first two values) must be alphabetically sorted
-% if called out-of-order (alphabetically), flip
-headToHeadMapDiff(X, Y, X) :- X @> Y, headToHeadMapDiff(Y, X, X).
-headToHeadMapDiff(X, Y, tie) :- X @> Y, headToHeadMapDiff(Y, X, tie).
-
-% the two teams (first two values) must be alphabetically sorted
-% if called out-of-order (alphabetically), flip
-headToHead(X, Y, X) :- X @> Y, headToHead(Y, X, X).
-headToHead(X, Y, tie) :- X @> Y, headToHead(Y, X, tie).*/
-
 endOfStage(Wins, Losses) :-
     Sum is Wins + Losses,
     Sum = 10. 
@@ -71,27 +47,8 @@ compareRecords(>, Record1, Record2) :-
     Record2 = record(team(Team2), _, _, _, _, _, _),
     % ensure alphabetical order of team names
     Team2 @> Team1.
-/*compareRecords(>, Record1, Record2) :-
-    Record1 = record(team(Team1), W1, L1, MD1, HtHMD1, HtHR1, TieBreakers1),
-    Record2 = record(team(Team2), W2, _, MD2, HtHMD2, HtHR2, TieBreakers2),
-    W1 = W2,
-    MD1 = MD2,
-    \+member(Team2, HtHMD1),
-    \+member(Team1, HtHMD2),
-    \+member(Team2, HtHR1),
-    \+member(Team1, HtHR2),
-    endOfStage(W1, L1),
-    \+member(Team2, TieBreakers1),
-    \+member(Team1, TieBreakers2),
-    Team2 @> Team1.*/
 compareRecords(<, Team1, Team2) :-
     compareRecords(>, Team2, Team1).
-
-% label teams as 1st, 2nd, etc.
-assignStandings(_, [], []).
-assignStandings(N, [H|T], [(N, H)|Rest]) :-
-    N2 is N + 1,
-    assignStandings(N2, T, Rest).
 
 tied(Record1, Record2) :-
     Record1 = record(team(Team1), W1, _, MD1, HtHMD1, HtHR1, TieBreakers1),
@@ -112,20 +69,20 @@ groupTeams(Record1, Record2, Records, NumTeams, NumTeams, Records, [team(Team1),
     Record1 = record(team(Team1), _, _, _, _, _, _),
     Record2 = record(team(Team2), _, _, _, _, _, _).
 
-assignStandings2(_, [], []).
-assignStandings2(Rank, [Record1,Record2|Records], [(Rank, GroupedTeams)|Rest]) :-
+assignStandings(_, [], []).
+assignStandings(Rank, [Record1,Record2|Records], [(Rank, GroupedTeams)|Rest]) :-
     tied(Record1, Record2),
     groupTeams(Record1, Record2, Records, 2, NumTeams, RemainingRecords, GroupedTeams),
     NewRank is Rank + NumTeams,
-    assignStandings2(NewRank, RemainingRecords, Rest).
-assignStandings2(Rank, [Record|Records], [(Rank, [team(Team)])|Rest]) :-
+    assignStandings(NewRank, RemainingRecords, Rest).
+assignStandings(Rank, [Record|Records], [(Rank, [team(Team)])|Rest]) :-
     Record = record(team(Team), _, _, _, _, _, _),
     NewRank is Rank + 1,
-    assignStandings2(NewRank, Records, Rest).
+    assignStandings(NewRank, Records, Rest).
 
 teamStandings(Records, Standings) :-
     predsort(compareRecords, Records, SortedRecords),
     reverse(SortedRecords, ReversedSortedRecords),
-    assignStandings2(1, ReversedSortedRecords, Standings), !.
+    assignStandings(1, ReversedSortedRecords, Standings), !.
 
 
