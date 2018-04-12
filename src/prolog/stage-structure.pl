@@ -31,23 +31,23 @@ endOfStage(Wins, Losses) :-
 %record(team(name), Wins, Losses, OverallMapDiff, HeadToHeadMapDiff, HeadToHead, TieBreakers) -> HeadToHeadMapDiff and HeadToHead and TieBreakers have team names in them if the team has a positive record against that team, or if they have won a tie breaker match against them
 
 compareRecords(>, Record1, Record2) :-
-    Record1 = record(team(_), W1, _, _, [_], [_], [_]), 
-    Record2 = record(team(_), W2, _, _, [_], [_], [_]),
+    Record1 = record(team(_), W1, _, _, _, _, _), 
+    Record2 = record(team(_), W2, _, _, _, _, _),
     W1 > W2.
 compareRecords(>, Record1, Record2) :-
-    Record1 = record(team(_), W1, _, MD1, [_], [_], [_]),
-    Record2 = record(team(_), W2, _, MD2, [_], [_], [_]),
+    Record1 = record(team(_), W1, _, MD1, _, _, _),
+    Record2 = record(team(_), W2, _, MD2, _, _, _),
     W1 = W2,
     MD1 > MD2.
 compareRecords(>, Record1, Record2) :-
-    Record1 = record(team(_), W1, _, MD1, HtHMD1, [_], [_]),
-    Record2 = record(team(Team2), W2, _, MD2, [_],[_], [_]),
+    Record1 = record(team(_), W1, _, MD1, HtHMD1, _, _),
+    Record2 = record(team(Team2), W2, _, MD2, _,_, _),
     W1 = W2,
     MD1 = MD2,
     member(Team2, HtHMD1). % Head to Head Map Differential in favor of Team1
 compareRecords(>, Record1, Record2) :-
-    Record1 = record(team(Team1), W1, _, MD1, HtHMD1, HtHR1, [_]),
-    Record2 = record(team(Team2), W2, _, MD2, HtHMD2, [_], [_]),
+    Record1 = record(team(Team1), W1, _, MD1, HtHMD1, HtHR1, _),
+    Record2 = record(team(Team2), W2, _, MD2, HtHMD2, _, _),
     W1 = W2,
     MD1 = MD2,
     \+member(Team2, HtHMD1), % Head to Head Map Differential is tied
@@ -55,7 +55,7 @@ compareRecords(>, Record1, Record2) :-
     member(Team2, HtHR1). % Head to Head Record is in favor of Team1
 compareRecords(>, Record1, Record2) :- % should be restricted to only at the end of stages
     Record1 = record(team(Team1), W1, L1, MD1, HtHMD1, HtHR1, TieBreakers),
-    Record2 = record(team(Team2), W2, _, MD2, HtHMD2, HtHR2, [_]),
+    Record2 = record(team(Team2), W2, _, MD2, HtHMD2, HtHR2, _),
     W1 = W2,
     MD1 = MD2,
     \+member(Team2, HtHMD1),
@@ -67,8 +67,8 @@ compareRecords(>, Record1, Record2) :- % should be restricted to only at the end
 % tie cases
 compareRecords(>, Record1, Record2) :-
     tied(Record1, Record2),
-    Record1 = record(team(Team1), _, _, _, [_], [_], [_]),
-    Record2 = record(team(Team2), _, _, _, [_], [_], [_]),
+    Record1 = record(team(Team1), _, _, _, _, _, _),
+    Record2 = record(team(Team2), _, _, _, _, _, _),
     % ensure alphabetical order of team names
     Team2 @> Team1.
 /*compareRecords(>, Record1, Record2) :-
@@ -104,13 +104,13 @@ tied(Record1, Record2) :-
     \+member(Team1, TieBreakers2).
 
 groupTeams(Record1, Record2, [Record3|Records], NumTeams, UpdatedNumTeams, RemainingRecords, [team(Team1)|GroupedTeams]) :-
-    Record1 = record(team(Team1), _, _, _, [_], [_], [_]),
+    Record1 = record(team(Team1), _, _, _, _, _, _),
     tied(Record1, Record3),
     NewNum is NumTeams + 1,
     groupTeams(Record2, Record3, Records, NewNum, UpdatedNumTeams, RemainingRecords, GroupedTeams).
 groupTeams(Record1, Record2, Records, NumTeams, NumTeams, Records, [team(Team1),team(Team2)]) :-
-    Record1 = record(team(Team1), _, _, _, [_], [_], [_]),
-    Record2 = record(team(Team2), _, _, _, [_], [_], [_]).
+    Record1 = record(team(Team1), _, _, _, _, _, _),
+    Record2 = record(team(Team2), _, _, _, _, _, _).
 
 assignStandings2(_, [], []).
 assignStandings2(Rank, [Record1,Record2|Records], [(Rank, GroupedTeams)|Rest]) :-
@@ -119,7 +119,7 @@ assignStandings2(Rank, [Record1,Record2|Records], [(Rank, GroupedTeams)|Rest]) :
     NewRank is Rank + NumTeams,
     assignStandings2(NewRank, RemainingRecords, Rest).
 assignStandings2(Rank, [Record|Records], [(Rank, [team(Team)])|Rest]) :-
-    Record = record(team(Team), _, _, _, [_], [_], [_]),
+    Record = record(team(Team), _, _, _, _, _, _),
     NewRank is Rank + 1,
     assignStandings2(NewRank, Records, Rest).
 
