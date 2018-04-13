@@ -84,8 +84,13 @@ teamStandings(Records, Standings) :-
     reverse(SortedRecords, ReversedSortedRecords),
     assignStandings(1, ReversedSortedRecords, Standings), !.
 
-aWeekOfMatches(_, [], _).
-aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords) :-
+aWeekOfMatches(Records, [], Records, Standings) :-
+    teamStandings(EndingRecords, Standings).
+aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords, Standings) :-
     Match = [team(Team1), W1, team(Team2), W2, TieBreaker],
-    select().
+    select(StartingRecords, record(team(Team1), OldW1, OldL1, OldMD1, OldHtHMD1, OldHtHR1, OldTieBreakers1), UpdatedStartingRecords),
+    select(UpdatedStartingRecords, record(team(Team2), OldW2, OldL2, OldMD2, OldHtHMD2, OldHtHR2, OldTieBreakers2), UpdatedStartingRecords2),
+    NewMD1 is W1 + OldMD1 - W2, NewMD2 is W2 + OldMD1 - W1, % update the map differential for both teams
+    W1 > W2, NewW1 is OldW1 + 1, NewL2 is OldL2 + 1, % update wins and losses for the teams according to who won
+    updateTieBreakerLists(.
 
