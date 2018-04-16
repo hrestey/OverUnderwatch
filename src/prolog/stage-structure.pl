@@ -20,24 +20,23 @@ compareRecords(>, Record1, Record2) :-
     Record2 = record(team(Team2), W2, _, MD2, _,_, _),
     W1 = W2,
     MD1 = MD2,
-    member([Team2, _], HtHMD1). % Head to Head Map Differential in favor of Team1
+    member([Team2, A], HtHMD1), A > 0. % Head to Head Map Differential in favor of Team1
 compareRecords(>, Record1, Record2) :-
     Record1 = record(team(Team1), W1, _, MD1, HtHMD1, HtHR1, _),
     Record2 = record(team(Team2), W2, _, MD2, HtHMD2, _, _),
     W1 = W2,
     MD1 = MD2,
-    \+member([Team2, _], HtHMD1), % Head to Head Map Differential is tied
-    \+member([Team1, _], HtHMD2), % ^ ^
-    member([Team2, _], HtHR1). % Head to Head Record is in favor of Team1
+    member([Team2, 0], HtHMD1), % Head to Head Map Differential is tied
+    member([Team2, A], HtHR1), A > 0. % Head to Head Record is in favor of Team1
 compareRecords(>, Record1, Record2) :- % should be restricted to only at the end of stages
     Record1 = record(team(Team1), W1, _, MD1, HtHMD1, HtHR1, TieBreakers),
     Record2 = record(team(Team2), W2, _, MD2, HtHMD2, HtHR2, _),
     W1 = W2,
     MD1 = MD2,
-    \+member([Team2, _], HtHMD1),
-    \+member([Team1, _], HtHMD2),
-    \+member([Team2, _], HtHR1),
-    \+member([Team1, _], HtHR2),
+    member([Team2, 0], HtHMD1),
+    member([Team1, 0], HtHMD2),
+    member([Team2, 0], HtHR1),
+    member([Team1, 0], HtHR2),
     member(Team2, TieBreakers).
 % tie case
 compareRecords(>, Record1, Record2) :-
@@ -52,10 +51,10 @@ compareRecords(<, Team1, Team2) :-
 tied(Record1, Record2) :-
     Record1 = record(team(Team1), W1, _, MD1, HtHMD1, HtHR1, TieBreakers1),
     Record2 = record(team(Team2), W1, _, MD1, HtHMD2, HtHR2, TieBreakers2),
-    \+member([Team2, _], HtHMD1),
-    \+member([Team1, _], HtHMD2),
-    \+member([Team2, _], HtHR1),
-    \+member([Team1, _], HtHR2),
+    member([Team2, 0], HtHMD1),
+    member([Team1, 0], HtHMD2),
+    member([Team2, 0], HtHR1),
+    member([Team1, 0], HtHR2),
     \+member(Team2, TieBreakers1),
     \+member(Team1, TieBreakers2).
 
@@ -84,13 +83,53 @@ teamStandings(Records, Standings) :-
     reverse(SortedRecords, ReversedSortedRecords),
     assignStandings(1, ReversedSortedRecords, Standings), !.
 
+updateHeadToHeadLists(HeadToHeadMapDiff, HeadToHeadRecord, TieBreakers, Wins, Losses, Opponent, false, [[team(Opponent), NewMaps]|UpdatedMapDiff], [[team(Opponent), NewRecord]|UpdatedRecord], 
+    TieBreakers) :-
+    select(HeadToHeadMapDiff, [team(Opponent), Maps], UpdatedMapDiff),
+    select(HeadToHeadRecord, [team(Opponent), Record], UpdatedRecord),
+    Wins > Losses
+    NewMaps is Maps + Wins - Losses,
+    NewRecord is Record + 1.
+updateHeadToHeadLists(HeadToHeadMapDiff, HeadToHeadRecord, TieBreakers, Wins, Losses, Opponent, false [[team(Opponent), NewMaps]|UpdatedMapDiff], [[team(Opponent), NewRecord]|UpdatedRecord],
+    TieBreakers) :-
+    select(HeadToHeadMapDiff, [team(Opponent), Maps], UpdatedMapDiff),
+    select(HeadToHeadRecord, [team(Opponent), Record], UpdatedRecord),
+    Losses > Wins,
+    NewMaps is Maps + Wins - Losses,
+    New Record is Record - 1.
+
 aWeekOfMatches(Records, [], Records, Standings) :-
     teamStandings(EndingRecords, Standings).
 aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords, Standings) :-
-    Match = [team(Team1), W1, team(Team2), W2, TieBreaker],
+    Match = [team(Team1), W1, team(Team2), W2, false],
     select(StartingRecords, record(team(Team1), OldW1, OldL1, OldMD1, OldHtHMD1, OldHtHR1, OldTieBreakers1), UpdatedStartingRecords),
     select(UpdatedStartingRecords, record(team(Team2), OldW2, OldL2, OldMD2, OldHtHMD2, OldHtHR2, OldTieBreakers2), UpdatedStartingRecords2),
-    NewMD1 is W1 + OldMD1 - W2, NewMD2 is W2 + OldMD1 - W1, % update the map differential for both teams
     W1 > W2, NewW1 is OldW1 + 1, NewL2 is OldL2 + 1, % update wins and losses for the teams according to who won
-    updateTieBreakerLists(.
+    NewMD1 is W1 + OldMD1 - W2, NewMD2 is W2 + OldMD1 - W1, % update the map differential for both teams
+    updateHeadToHeadLists(OldHtHMD1, OldHtHR1, OldTieBreakers1, W1, W2, Team2, TieBreaker, NewHtHMD1, NewHtHR1, NewTieBreakers1),
+    updateHeadToHeadLists(OldHtHMD2, OldHtHR2, OldTieBreakers2, W2, W1, Team1, TieBreaker, NewHtHMD2, NewHtHR2, NewTieBreakers2),
+    aWeekOfMatches([record(team(Team1), NewW1, OldL1, NewMD1, NewHtHMD1, NewHtHR1, NewTieBreakers1),
+        record(team(Team2), OldW2, NewL2, NewMD2, NewHtHMD2, NewHtHR2, NewTieBreakers2)|UpdatedStartingRecords2], Schedule, EndingRecords, Standings).
+aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords, Standings) :-
+    Match = [team(Team1), W1, team(Team2), W2, false],
+    select(StartingRecords, record(team(Team1), OldW1, OldL1, OldMD1, OldHtHMD1, OldHtHR1, TieBreakers1), UpdatedStartingRecords),
+    select(UpdatedStartingRecords, record(team(Team2), OldW2, OldL2, OldMD2, OldHtHMD2, OldHtHR2, Breakers2), UpdatedStartingRecords2),
+    W2 > W2, NewW2 is OldW2 + 1, NewL1 is OldL1 + 1, % update wins and losses for the teams according to who won
+    NewMD1 is W1 + OldMD1 - W2, NewMD2 is W2 + OldMD1 - W1, % update the map differential for both teams
+    updateHeadToHeadLists(OldHtHMD1, OldHtHR1, W1, W2, Team2, NewHtHMD1, NewHtHR1),
+    updateHeadToHeadLists(OldHtHMD2, OldHtHR2, W2, W1, Team1, NewHtHMD2, NewHtHR2),
+    aWeekOfMatches([record(team(Team1), OldW1, NewL1, NewMD1, NewHtHMD1, NewHtHR1, TieBreakers1),
+        record(team(Team2), NewW2, OldL2, NewMD2, NewHtHMD2, NewHtHR2, TieBreakers2)|UpdatedStartingRecords2], Schedule, EndingRecords, Standings).
+aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords, Standings) :-
+    Match = [team(Team1), W1, team(Team2), W2, true],
+    W1 > W2,
+    select(StartingRecords, record(team(Team1), W, L, MD, HtHMD, HtHR, OldTieBreakers), UpdatedStartingRecords),
+    NewTieBreakers is [Team2|OldTieBreakers],
+    aWeekOfMatches([record(team(Team1), W, L, MD, HtHMD, HtHR, NewTieBreakers)|UpdatedStartingRecords], Schedule, EndingRecords, Standings).
+aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords, Standings) :-
+    Match = [team(Team1), W1, team(Team2), W2, true],
+    W2 > W1,
+    select(startingRecords, record(team(Team2), W, L, MD, HtHMD, HtHR, OldTieBreakers), UpdatedStartingRecords),
+    NewTieBreakers is [Team1|OldTieBreakers],
+    aWeekOfMatches([record(team(Team2), W, L, MD, HtHMD, HtHR, NewTieBreakers)|UpdatedStartingRecords], Schedule, EndingRecords, Standings).
 
