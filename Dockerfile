@@ -63,8 +63,9 @@ COPY run-lamp.sh /usr/sbin/
 
 RUN mkdir /usr/sql
 RUN chmod 644 /usr/sql
-COPY sql/sources.sql /usr/sql/
-RUN 
+COPY sql/source.sql /usr/sql/
+#RUN mysqladmin create db
+#RUN mysql -uroot -ptaprootofthetree db < /usr/sql/sources.sql
 
 RUN a2enmod rewrite
 RUN ln -s /usr/bin/nodejs /usr/bin/node
@@ -80,3 +81,7 @@ EXPOSE 80
 EXPOSE 3306
 
 CMD ["/usr/sbin/run-lamp.sh"]
+
+RUN mysqld_safe
+RUN mysqladmin -uroot -ptaprootofthetree create db
+RUN mysql -uroot -ptaprootofthetree db < /usr/sql/sources.sql

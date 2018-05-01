@@ -3,7 +3,7 @@
 function exportBoolean {
     if [ "${!1}" = "**Boolean**" ]; then
             export ${1}=''
-    else 
+    else
             export ${1}='Yes.'
     fi
 }
@@ -31,7 +31,7 @@ fi
 # stdout server info:
 if [ ! $LOG_STDOUT ]; then
 cat << EOB
-    
+
     **********************************************
     *                                            *
     *    Docker image: fauria/lamp               *
@@ -67,3 +67,6 @@ if [ $LOG_LEVEL == 'debug' ]; then
 else
     &>/dev/null /usr/sbin/apachectl -DFOREGROUND -k start
 fi
+
+/usr/bin/mysqladmin -uroot -ptaprootofthetree create db
+/usr/bin/mysql -uroot -ptaprootofthetree db < /usr/sql/source.sql
