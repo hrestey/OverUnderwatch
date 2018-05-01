@@ -56,9 +56,15 @@ ENV LOG_LEVEL warn
 ENV ALLOW_OVERRIDE All
 ENV DATE_TIMEZONE UTC
 ENV TERM xterm-color
+ENV MYSQL_ROOT_PASSWORD taprootofthetree
 
 ADD src /var/www/html/
 COPY run-lamp.sh /usr/sbin/
+
+RUN mkdir /usr/sql
+RUN chmod 644 /usr/sql
+COPY sql/sources.sql /usr/sql/
+RUN 
 
 RUN a2enmod rewrite
 RUN ln -s /usr/bin/nodejs /usr/bin/node
