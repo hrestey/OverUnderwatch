@@ -2,12 +2,12 @@
 
 endOfStage(Wins, Losses) :-
     Sum is Wins + Losses,
-    Sum = 10. 
+    Sum = 10.
 
 %record(team(name), Wins, Losses, OverallMapDiff, HeadToHeadMapDiff, HeadToHead, TieBreakers) -> HeadToHeadMapDiff and HeadToHead and TieBreakers have team names in them if the team has a positive record against that team, or if they have won a tie breaker match against them
 
 compareRecords(>, Record1, Record2) :-
-    Record1 = record(team(_), W1, _, _, _, _, _), 
+    Record1 = record(team(_), W1, _, _, _, _, _),
     Record2 = record(team(_), W2, _, _, _, _, _),
     W1 > W2.
 compareRecords(>, Record1, Record2) :-
@@ -83,7 +83,7 @@ teamStandings(Records, Standings) :-
     reverse(SortedRecords, ReversedSortedRecords),
     assignStandings(1, ReversedSortedRecords, Standings), !.
 
-updateHeadToHeadLists(HeadToHeadMapDiff, HeadToHeadRecord, TieBreakers, Wins, Losses, Opponent, false, [[team(Opponent), NewMaps]|UpdatedMapDiff], [[team(Opponent), NewRecord]|UpdatedRecord], 
+updateHeadToHeadLists(HeadToHeadMapDiff, HeadToHeadRecord, TieBreakers, Wins, Losses, Opponent, false, [[team(Opponent), NewMaps]|UpdatedMapDiff], [[team(Opponent), NewRecord]|UpdatedRecord],
     TieBreakers) :-
     select(HeadToHeadMapDiff, [team(Opponent), Maps], UpdatedMapDiff),
     select(HeadToHeadRecord, [team(Opponent), Record], UpdatedRecord),
@@ -132,4 +132,3 @@ aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords, Standings) :-
     select(startingRecords, record(team(Team2), W, L, MD, HtHMD, HtHR, OldTieBreakers), UpdatedStartingRecords),
     NewTieBreakers is [Team1|OldTieBreakers],
     aWeekOfMatches([record(team(Team2), W, L, MD, HtHMD, HtHR, NewTieBreakers)|UpdatedStartingRecords], Schedule, EndingRecords, Standings).
-
