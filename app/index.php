@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/vender/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 if (isset($_GET['controller']) && isset($_GET['action'])) {
     $controller = $_GET['controller'];

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+composer install --ignore-platform-reqs -d app/
+
 docker network create owlmapnet
 # build mysql container image
 echo "Building mymysql image:"
@@ -17,7 +19,3 @@ docker run -dit --name owl-phppl --network owlmapnet -p 8080:80 -v "$PWD/app":/v
 echo "Setting up db in database container"
 docker exec -d owlmap-db bash /usr/sql/run-db.sh
 
-# install and run composer with docker exec in main container
-echo "Install and run composer on main container:"
-docker exec -d owl-phppl bash /usr/sbin/installcomposer.sh
-docker exec -d owl-phppl composer install --ignore-platform-reqs -d /var/www/html/app/
