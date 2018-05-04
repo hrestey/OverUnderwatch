@@ -5,13 +5,17 @@
         switch($controller) {
             case 'main':
                 $controller = new App\Controllers\MainController();
+            case 'authentication':
+                $controller = new App\Controllers\AuthenticationController();
             break;
             //more cases
         }
+        $controller->{ $action }();
     }
 
 //array with valid controllers and actions
-$controllers = array('main' => ['home', 'error']);
+$controllers = array('main' => ['home', 'error'],
+                     'authentication' => ['signup', 'login', 'logout']);
 
 //Check if controller action pair is valid, send to error page if not
 if (array_key_exists($controller, $controllers)) {
