@@ -6,6 +6,15 @@ namespace App\Models;
 */
 class Authentication {
 
+    public function register() {
+        $uname = isset($_POST['user']) ? $_POST['user'] :"";
+        $email = isset($_POST['email']) ? $_POST['email'] : "";
+        $password = isset($_POST['password']) ? $_POST['password'] : "";
+
+        //sanitize inputs for uname and email
+        //Hash password, create prepared statement to insert new row into user table
+    }
+
     public function validate() {
         $user = isset($_POST['user']) ? $_POST['user'] : "";
         $password = isset($_POST['password']) ? $_POST['password'] : "";
@@ -22,6 +31,7 @@ class Authentication {
         }
         return false;
     }
+
     public function logout() {
         session_unset();
         session_destroy();

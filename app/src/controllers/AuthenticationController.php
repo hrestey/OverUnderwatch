@@ -32,6 +32,9 @@ class AuthenticationController {
     }
 
     public function logout() {
-
+        if ($_SESSION['authorized'] === 1) {
+            $model = new Authentication();
+            $model->logout();
+        }
     }
 }
