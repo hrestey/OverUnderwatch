@@ -10,11 +10,11 @@
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="?controller=main&action=home">OWL PLayoff Map</a>
+                    <a class="navbar-brand" href="?controller=main&action=home">Map OWL Playoffs</a>
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="?controller=main&action=home">Home</a></li>
-                    <li><a href="#">OWL Playoff Map</a></li>
+                    <li><a href="#">Map the Playoffs</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Login</a></li>
                 </ul>

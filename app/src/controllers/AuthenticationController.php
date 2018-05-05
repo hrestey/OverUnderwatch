@@ -16,11 +16,11 @@ class AuthenticationController {
     public function login() {
         if (isset($_SESSION['authorized']) and ($_SESSION['authorized'] == 1)) {
             $view = new Renderer('views/main/');
-            $view->title = "You are already logged in."
+            $view->title = "You are already logged in.";
             $view->render('home.php');
         } else {
             $view = new Renderer('views/auth/');
-            $view->title = "Login"
+            $view->title = "Login";
             $view->render('login.php');
 
             //if login successful, redirect to home page

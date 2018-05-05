@@ -1,7 +1,7 @@
 <title>$this->title</title>
 <div class="container">
     <div class="row">
-        <h1>Overwatch League Playoff Map</h1>
+        <h1>Map the Overwatch League Playoffs</h1>
         <br>
         <h3>Do you know what matches a team needs to win to make it into the Stage Playoffs? Who wants to do all that math?</h3>
         <br>

@@ -5,6 +5,7 @@
         switch($controller) {
             case 'main':
                 $controller = new App\Controllers\MainController();
+            break;
             case 'authentication':
                 $controller = new App\Controllers\AuthenticationController();
             break;

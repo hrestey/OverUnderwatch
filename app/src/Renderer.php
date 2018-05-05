@@ -8,7 +8,7 @@ namespace App;
 
 class Renderer {
 
-    private $templateDir = 'src/views/';
+    private $templateDir = 'src/views/main/';
     private $data = array();
 
     public function __construct($templateDirectory = null) {
