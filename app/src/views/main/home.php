@@ -1,4 +1,4 @@
-<title>$this->title</title>
+<title><?php $this->title ?></title>
 <div class="container">
     <div class="row">
         <h1>Map the Overwatch League Playoffs</h1>
