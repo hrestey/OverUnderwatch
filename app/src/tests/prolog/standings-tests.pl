@@ -7,6 +7,12 @@ test(endOfStage) :-
 test(endOfStage) :-
     \+endOfStage(8, 0).
 
+% test endOfSeason, make sure it evaluates as true when wins and losses add to 40
+test(endOfSeason) :-
+    endOfSeason(20, 20).
+test(endOfSeason) :-
+    \+endOfSeason(10, 10).
+
 % test teamStandings
 test(teamStandings) :-
     teamStandings([record(team(newyork), 10, 0, 25, [none], [none], [none]),
@@ -136,6 +142,28 @@ test(teamStandings) :-
     record(team(dallas), 0, 2, -1, [none], [none], [none])],
     [(1, [team(london),team(newyork),team(seoul)]), (4, [team(boston)]), (5, [team(houston),team(lagladiators),team(lavaliant)]), (8, [team(dallas)]),
     (9, [team(philadelphia)]), (10, [team(florida)]), (11, [team(sanfrancisco),team(shanghai)])]).
+    % Testing ties from stage 3 week 1, to make sure that tie-breakers beyond map diff aren't evaluated unless at the end of a stage
+test(teamStandings) :-
+    teamStandings([record(team(sanfrancisco), 1, 1, -2, [[lagladiators, 2], [seoul, -4]], [[lagladiators, 1], [seoul, -1]], []),
+    record(team(lavaliant), 2, 0, 8, [[seoul, 4], [shanghai, 4]], [[seoul, 1], [shanghai, 1]], []),
+    record(team(london), 0, 2, -5, [[houston, -1], [newyork, -4]], [[houston, -1], [newyork, -1]], []),
+    record(team(dallas), 1, 1, 0, [[shanghai, 2], [lagladiators, -2]], [[shanghai, 1], [lagladiators, -1]], []),
+    record(team(seoul), 1, 1, 0, [[lavaliant, -4], [sanfrancisco, 4]], [[lavaliant, -1], [sanfrancisco, 1]], []),
+    record(team(philadelphia), 1, 1, 1, [[boston, -1], [florida, 2]], [[boston -1], [florida, 1]], []),
+    record(team(florida), 0, 2, -6, [[newyork, -4], [philadelphia, -2]], [[newyork, -1], [philadelphia, -1]], []),
+    record(team(houston), 1, 1, -3, [[london, 1], [boston, -4]], [[london, 1], [boston, -1]], []),
+    record(team(lagladiators), 1, 1, 0, [[sanfrancisco, -2], [dallas, 2]], [[sanfrancisco, -1], [dallas, 1]], []),
+    record(team(newyork), 2, 0, 8, [[florida, 4], [london, 4]], [[florida, 1], [london, 1]], []),
+    record(team(boston), 2, 0, 5, [[philadelphia, 1], [houston, 4]], [[philadelphia, 1], [houston, 1]], []),
+    record(team(shanghai), 0, 2, -6, [[dallas, -2], [lavaliant, -4]], [[dallas, -1], [lavaliant, -1]], [])],
+    [(1, [team(lavaliant),team(newyork)]),
+    (3, [team(boston)]),
+    (4, [team(philadelphia)]),
+    (5, [team(dallas),team(lagladiators),team(seoul)]),
+    (8, [team(sanfrancisco)]),
+    (9, [team(houston)]),
+    (10, [team(london)]),
+    (11, [team(florida),team(shanghai)])]).
     % Testing tie breakers with a head-to-head map differential breaking a tie
 test(teamStandings) :-
     teamStandings([record(team(seoul), 4, 0, 10, [none], [none], [none]),
@@ -151,15 +179,15 @@ test(teamStandings) :-
     record(team(sanfrancisco), 1, 3, -4, [none], [none], [none]),
     record(team(lagladiators), 2, 2, 4, [none], [none], [none])],
     [(1, [team(seoul)]),
-    (2, [team(london)]), 
-    (3, [team(newyork)]), 
-    (4, [team(philadelphia)]), 
-    (5, [team(lavaliant)]), 
-    (6, [team(lagladiators)]), 
+    (2, [team(london)]),
+    (3, [team(newyork)]),
+    (4, [team(philadelphia)]),
+    (5, [team(lavaliant)]),
+    (6, [team(lagladiators)]),
     (7, [team(dallas), team(houston)]),
-    (9, [team(sanfrancisco)]), 
-    (10, [team(boston)]), 
-    (11, [team(florida)]), 
+    (9, [team(sanfrancisco)]),
+    (10, [team(boston)]),
+    (11, [team(florida)]),
     (12, [team(shanghai)])]).
     % Test based on the standings at the end of stage 2 in the first season of OWL. No ties
 test(teamStandings) :-
@@ -311,7 +339,6 @@ test(teamStandings) :-
     (10, [team(sanfrancisco)]),
     (11, [team(dallas)]),
     (12, [team(shanghai)])]).
-
 
 tester() :- teamStandings([record(team(newyork), 2, 0, 6, [[london, 0], [seoul, 0]], [[london, 0], [seoul, 0]], [none]),
 record(team(london), 2, 0, 6, [[newyork, 0], [seoul, 0]], [[newyork, 0], [seoul, 0]], [none]),

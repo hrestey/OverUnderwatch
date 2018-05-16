@@ -3,6 +3,9 @@
 endOfStage(Wins, Losses) :-
     Sum is Wins + Losses,
     Sum = 10.
+endOfSeason(Wins, Losses) :-
+    Sum is Wins + Losses,
+    Sum = 40.
 
 %record(team(name), Wins, Losses, OverallMapDiff, HeadToHeadMapDiff, HeadToHead, TieBreakers) -> HeadToHeadMapDiff and HeadToHead and TieBreakers have team names in them if the team has a positive record against that team, or if they have won a tie breaker match against them
 
@@ -50,7 +53,8 @@ compareRecords(<, Team1, Team2) :-
     compareRecords(>, Team2, Team1).
 
 tied(Record1, Record2) :-
-    Record1 = record(team(Team1), W1, _, MD1, HtHMD1, HtHR1, TieBreakers1),
+    Record1 = record(team(Team1), W1, L1, MD1, HtHMD1, HtHR1, TieBreakers1),
+    endOfStage(W1, L1),
     Record2 = record(team(Team2), W1, _, MD1, HtHMD2, HtHR2, TieBreakers2),
     member([Team2, 0], HtHMD1),
     member([Team1, 0], HtHMD2),
@@ -58,6 +62,19 @@ tied(Record1, Record2) :-
     member([Team1, 0], HtHR2),
     \+member(Team2, TieBreakers1),
     \+member(Team1, TieBreakers2).
+tied(Record1, Record2) :-
+    Record1 = record(team(Team1), W1, L1, MD1, HtHMD1, HtHR1, TieBreakers1),
+    endOfSeason(W1, L1),
+    Record2 = record(team(Team2), W1, _, MD1, HtHMD2, HtHR2, TieBreakers2),
+    member([Team2, 0], HtHMD1),
+    member([Team1, 0], HtHMD2),
+    member([Team2, 0], HtHR1),
+    member([Team1, 0], HtHR2),
+    \+member(Team2, TieBreakers1),
+    \+member(Team1, TieBreakers2).
+tied(Record1, Record2) :-
+    Record1 = record(team(_), W1, _, MD1, _, _, _),
+    Record2 = record(team(_), W1, _, MD1, _, _, _).
 
 groupTeams(Record1, Record2, [Record3|Records], NumTeams, UpdatedNumTeams, RemainingRecords, [team(Team1)|GroupedTeams]) :-
     Record1 = record(team(Team1), _, _, _, _, _, _),
