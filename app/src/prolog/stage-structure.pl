@@ -138,6 +138,8 @@ aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords, Standings) :-
     updateHeadToHeadLists(OldHtHMD2, OldHtHR2, W2, W1, Team1, NewHtHMD2, NewHtHR2),
     aWeekOfMatches([record(team(Team1), OldW1, NewL1, NewMD1, NewHtHMD1, NewHtHR1, TieBreakers1),
         record(team(Team2), NewW2, OldL2, NewMD2, NewHtHMD2, NewHtHR2, TieBreakers2)|UpdatedStartingRecords2], Schedule, EndingRecords, Standings).
+    % These cases are for when the match is a tiebreaker match. As things are currently, I believe that they don't affect any part of the standings beyond simply stating who owns the tie breaker, so
+    % I only updated the last list in the record.
 aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords, Standings) :-
     Match = [team(Team1), W1, team(Team2), W2, true],
     W1 > W2,
