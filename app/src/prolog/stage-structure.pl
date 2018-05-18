@@ -101,38 +101,38 @@ teamStandings(Records, Standings) :-
     reverse(SortedRecords, ReversedSortedRecords),
     assignStandings(1, ReversedSortedRecords, Standings), !.
 
-updateHeadToHeadLists(HeadToHeadMapDiff, HeadToHeadRecord, TieBreakers, Wins, Losses, Opponent, false, [[team(Opponent), NewMaps]|UpdatedMapDiff], [[team(Opponent), NewRecord]|UpdatedRecord],
-    TieBreakers) :-
-    select(HeadToHeadMapDiff, [team(Opponent), Maps], UpdatedMapDiff),
-    select(HeadToHeadRecord, [team(Opponent), Record], UpdatedRecord),
+updateHeadToHeadLists(HeadToHeadMapDiff, HeadToHeadRecord, Wins, Losses, Opponent, [[Opponent, NewMaps]|UpdatedMapDiff], [[Opponent, NewRecord]|UpdatedRecord]):-
+    select([Opponent, Maps], HeadToHeadMapDiff, UpdatedMapDiff),
+    select([Opponent, Record], HeadToHeadRecord, UpdatedRecord),
     Wins > Losses,
-    NewMaps is Maps + Wins - Losses,
+    Diff is Wins - Losses,
+    NewMaps is Maps + Diff,
     NewRecord is Record + 1.
-updateHeadToHeadLists(HeadToHeadMapDiff, HeadToHeadRecord, TieBreakers, Wins, Losses, Opponent, false, [[team(Opponent), NewMaps]|UpdatedMapDiff], [[team(Opponent), NewRecord]|UpdatedRecord],
-    TieBreakers) :-
-    select(HeadToHeadMapDiff, [team(Opponent), Maps], UpdatedMapDiff),
-    select(HeadToHeadRecord, [team(Opponent), Record], UpdatedRecord),
+updateHeadToHeadLists(HeadToHeadMapDiff, HeadToHeadRecord, Wins, Losses, Opponent, [[Opponent, NewMaps]|UpdatedMapDiff], [[Opponent, NewRecord]|UpdatedRecord]) :-
+    select([Opponent, Maps], HeadToHeadMapDiff, UpdatedMapDiff),
+    select([Opponent, Record], HeadToHeadRecord, UpdatedRecord),
     Losses > Wins,
-    NewMaps is Maps + Wins - Losses,
+    Diff is Losses - Wins,
+    NewMaps is Maps - Diff,
     NewRecord is Record - 1.
 
 aWeekOfMatches(Records, [], Records, Standings) :-
-    teamStandings(Records, Standings).
+    teamStandings(Records, Standings), !.
 aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords, Standings) :-
     Match = [team(Team1), W1, team(Team2), W2, false],
-    select(StartingRecords, record(team(Team1), OldW1, OldL1, OldMD1, OldHtHMD1, OldHtHR1, OldTieBreakers1), UpdatedStartingRecords),
-    select(UpdatedStartingRecords, record(team(Team2), OldW2, OldL2, OldMD2, OldHtHMD2, OldHtHR2, OldTieBreakers2), UpdatedStartingRecords2),
+    select(record(team(Team1), OldW1, OldL1, OldMD1, OldHtHMD1, OldHtHR1, TieBreakers1), StartingRecords, UpdatedStartingRecords),
+    select(record(team(Team2), OldW2, OldL2, OldMD2, OldHtHMD2, OldHtHR2, TieBreakers2), UpdatedStartingRecords, UpdatedStartingRecords2),
     W1 > W2, NewW1 is OldW1 + 1, NewL2 is OldL2 + 1, % update wins and losses for the teams according to who won
     NewMD1 is W1 + OldMD1 - W2, NewMD2 is W2 + OldMD2 - W1, % update the map differential for both teams
-    updateHeadToHeadLists(OldHtHMD1, OldHtHR1, OldTieBreakers1, W1, W2, Team2, TieBreaker, NewHtHMD1, NewHtHR1, NewTieBreakers1),
-    updateHeadToHeadLists(OldHtHMD2, OldHtHR2, OldTieBreakers2, W2, W1, Team1, TieBreaker, NewHtHMD2, NewHtHR2, NewTieBreakers2),
-    aWeekOfMatches([record(team(Team1), NewW1, OldL1, NewMD1, NewHtHMD1, NewHtHR1, NewTieBreakers1),
-        record(team(Team2), OldW2, NewL2, NewMD2, NewHtHMD2, NewHtHR2, NewTieBreakers2)|UpdatedStartingRecords2], Schedule, EndingRecords, Standings).
+    updateHeadToHeadLists(OldHtHMD1, OldHtHR1, W1, W2, Team2, NewHtHMD1, NewHtHR1),
+    updateHeadToHeadLists(OldHtHMD2, OldHtHR2, W2, W1, Team1, NewHtHMD2, NewHtHR2),
+    aWeekOfMatches([record(team(Team1), NewW1, OldL1, NewMD1, NewHtHMD1, NewHtHR1, TieBreakers1),
+        record(team(Team2), OldW2, NewL2, NewMD2, NewHtHMD2, NewHtHR2, TieBreakers2)|UpdatedStartingRecords2], Schedule, EndingRecords, Standings).
 aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords, Standings) :-
     Match = [team(Team1), W1, team(Team2), W2, false],
-    select(StartingRecords, record(team(Team1), OldW1, OldL1, OldMD1, OldHtHMD1, OldHtHR1, TieBreakers1), UpdatedStartingRecords),
-    select(UpdatedStartingRecords, record(team(Team2), OldW2, OldL2, OldMD2, OldHtHMD2, OldHtHR2, TieBreakers2), UpdatedStartingRecords2),
-    W2 > W2, NewW2 is OldW2 + 1, NewL1 is OldL1 + 1, % update wins and losses for the teams according to who won
+    select(record(team(Team1), OldW1, OldL1, OldMD1, OldHtHMD1, OldHtHR1, TieBreakers1), StartingRecords, UpdatedStartingRecords),
+    select(record(team(Team2), OldW2, OldL2, OldMD2, OldHtHMD2, OldHtHR2, TieBreakers2), UpdatedStartingRecords, UpdatedStartingRecords2),
+    W2 > W1, NewW2 is OldW2 + 1, NewL1 is OldL1 + 1, % update wins and losses for the teams according to who won
     NewMD1 is W1 + OldMD1 - W2, NewMD2 is W2 + OldMD2 - W1, % update the map differential for both teams
     updateHeadToHeadLists(OldHtHMD1, OldHtHR1, W1, W2, Team2, NewHtHMD1, NewHtHR1),
     updateHeadToHeadLists(OldHtHMD2, OldHtHR2, W2, W1, Team1, NewHtHMD2, NewHtHR2),
@@ -141,12 +141,12 @@ aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords, Standings) :-
 aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords, Standings) :-
     Match = [team(Team1), W1, team(Team2), W2, true],
     W1 > W2,
-    select(StartingRecords, record(team(Team1), W, L, MD, HtHMD, HtHR, OldTieBreakers), UpdatedStartingRecords),
+    select(record(team(Team1), W, L, MD, HtHMD, HtHR, OldTieBreakers), StartingRecords, UpdatedStartingRecords),
     NewTieBreakers is [Team2|OldTieBreakers],
     aWeekOfMatches([record(team(Team1), W, L, MD, HtHMD, HtHR, NewTieBreakers)|UpdatedStartingRecords], Schedule, EndingRecords, Standings).
 aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords, Standings) :-
     Match = [team(Team1), W1, team(Team2), W2, true],
     W2 > W1,
-    select(StartingRecords, record(team(Team2), W, L, MD, HtHMD, HtHR, OldTieBreakers), UpdatedStartingRecords),
+    select(record(team(Team2), W, L, MD, HtHMD, HtHR, OldTieBreakers), StartingRecords, UpdatedStartingRecords),
     NewTieBreakers is [Team1|OldTieBreakers],
     aWeekOfMatches([record(team(Team2), W, L, MD, HtHMD, HtHR, NewTieBreakers)|UpdatedStartingRecords], Schedule, EndingRecords, Standings).
