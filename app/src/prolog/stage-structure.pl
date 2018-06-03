@@ -127,7 +127,7 @@ aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords, Standings) :-
     updateHeadToHeadLists(OldHtHMD1, OldHtHR1, W1, W2, Team2, NewHtHMD1, NewHtHR1),
     updateHeadToHeadLists(OldHtHMD2, OldHtHR2, W2, W1, Team1, NewHtHMD2, NewHtHR2),
     aWeekOfMatches([record(team(Team1), NewW1, OldL1, NewMD1, NewHtHMD1, NewHtHR1, TieBreakers1),
-        record(team(Team2), OldW2, NewL2, NewMD2, NewHtHMD2, NewHtHR2, TieBreakers2)|UpdatedStartingRecords2], Schedule, EndingRecords, Standings).
+        record(team(Team2), OldW2, NewL2, NewMD2, NewHtHMD2, NewHtHR2, TieBreakers2)|UpdatedStartingRecords2], Schedule, EndingRecords, Standings), !.
 aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords, Standings) :-
     Match = [team(Team1), W1, team(Team2), W2, false],
     select(record(team(Team1), OldW1, OldL1, OldMD1, OldHtHMD1, OldHtHR1, TieBreakers1), StartingRecords, UpdatedStartingRecords),
@@ -137,7 +137,7 @@ aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords, Standings) :-
     updateHeadToHeadLists(OldHtHMD1, OldHtHR1, W1, W2, Team2, NewHtHMD1, NewHtHR1),
     updateHeadToHeadLists(OldHtHMD2, OldHtHR2, W2, W1, Team1, NewHtHMD2, NewHtHR2),
     aWeekOfMatches([record(team(Team1), OldW1, NewL1, NewMD1, NewHtHMD1, NewHtHR1, TieBreakers1),
-        record(team(Team2), NewW2, OldL2, NewMD2, NewHtHMD2, NewHtHR2, TieBreakers2)|UpdatedStartingRecords2], Schedule, EndingRecords, Standings).
+        record(team(Team2), NewW2, OldL2, NewMD2, NewHtHMD2, NewHtHR2, TieBreakers2)|UpdatedStartingRecords2], Schedule, EndingRecords, Standings), !.
     % These cases are for when the match is a tiebreaker match. As things are currently, I believe that they don't affect any part of the standings beyond simply stating who owns the tie breaker, so
     % I only updated the last list in the record.
 aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords, Standings) :-
@@ -145,10 +145,35 @@ aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords, Standings) :-
     W1 > W2,
     select(record(team(Team1), W, L, MD, HtHMD, HtHR, OldTieBreakers), StartingRecords, UpdatedStartingRecords),
     NewTieBreakers is [Team2|OldTieBreakers],
-    aWeekOfMatches([record(team(Team1), W, L, MD, HtHMD, HtHR, NewTieBreakers)|UpdatedStartingRecords], Schedule, EndingRecords, Standings).
+    aWeekOfMatches([record(team(Team1), W, L, MD, HtHMD, HtHR, NewTieBreakers)|UpdatedStartingRecords], Schedule, EndingRecords, Standings), !.
 aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords, Standings) :-
     Match = [team(Team1), W1, team(Team2), W2, true],
     W2 > W1,
     select(record(team(Team2), W, L, MD, HtHMD, HtHR, OldTieBreakers), StartingRecords, UpdatedStartingRecords),
     NewTieBreakers is [Team1|OldTieBreakers],
-    aWeekOfMatches([record(team(Team2), W, L, MD, HtHMD, HtHR, NewTieBreakers)|UpdatedStartingRecords], Schedule, EndingRecords, Standings).
+    aWeekOfMatches([record(team(Team2), W, L, MD, HtHMD, HtHR, NewTieBreakers)|UpdatedStartingRecords], Schedule, EndingRecords, Standings), !.
+
+aStageOfMatches(StartingRecords, [Week1, Week2, Week3, Week4, Week4], [Week1Records, Week2Records, Week3Records, Week4Records, EndingRecords], EndingRecords, Standings) :-
+    aWeekOfMatches(StartingRecords, Week1, Week1Records, _), !,
+    aWeekOfMatches(Week1Standings, Week2, Week2Records, _), !,
+    aWeekOfMatches(Week2Standings, Week3, Week3Records, _), !,
+    aWeekOfMatches(Week3Standings, Week4, Week4Records, _), !,
+    aWeekOfMatches(Week4Standings, Week5, EndingRecords, Standings), !.
+
+aggregateStageRecords([], StageRecords,  OverallRecords) :-
+    OverallRecords = StageRecords.
+aggregateStageRecords([Stage|Remaining), OverallRecords) :-
+    select(record(team(_), _, _, _, _, _, _), Stage, UpdatedStage),
+    aggregateStageRecords([UpdatedStage|Remaining], [record(team(_), _, _, _, _, _, _)], OverallRecords).
+aggregateStageRecords([Stage|Remaining], [record(team(Team), W2, L2, MD2, HtHMD2, HtHR2, TieBreakers2)|Records], OverallRecords) :-
+    select(record(team(Team), W1, L1, MD1, HtHMD1, HtHR1, TieBreakers1), Stage, []),
+    NewRecord is record(team(Team), W1 + W2, L1 + L2, MD1 + MD2, %Somehow need to aggregate Head to Head stuff and the Tiebreakers. Not sure yet
+    .
+
+aFullOWLSeason(StartingRecords, [Stage1Schedule, Stage2Schedule, Stage3Schedule, Stage4Schedule], [Stage1Records, Stage2Records, Stage3Records, Stage4Records], OverallRecords, OverallStandings) :-
+    aStageOfMatches(StartingRecords, Stage1Schedule, _, Stage1Records, _),
+    aStageOfMatches(StartingRecords, Stage2Schedule, _, Stage2Records, _),
+    aStageOfMatches(StartingRecords, Stage3Schedule, _, Stage3Records, _),
+    aStageOfMatches(StartingRecords, Stage4Schedule, _, Stage4Records, _),
+    aggregateStageRecords([Stage1Records, Stage2Records, Stage3Records, Stage4Records], OverallRecords),
+    teamStandings(OverallRecords, OverallStandings).

@@ -2,6 +2,7 @@
 :- ['../../prolog/stage-structure'].
 
 % Tests for aWeekOfMatches
+% Testing a scenario from week one of stage 3. Tie breakers are considered until map differential, since it isn't the end of the stage
 test(aWeekOfMatches) :-
     aWeekOfMatches([record(team(sanfrancisco), 0, 0, 0, [[london, 0], [houston, 0], [dallas, 0], [newyork, 0], [philadelphia, 0], [lavaliant, 0],
     [lagladiators, 0], [seoul, 0], [shanghai, 0], [boston, 0], [florida, 0]], [[london, 0], [houston, 0], [dallas, 0], [newyork, 0], [philadelphia, 0], [lavaliant, 0],
@@ -44,25 +45,37 @@ test(aWeekOfMatches) :-
     [team(sanfrancisco), 3, team(lagladiators), 1, false],
     [team(florida), 0, team(newyork), 4, false],
     [team(philadelphia), 2, team(boston), 3, false],
-    [team(london), 2, team(houston), 3, team(houston), false],
+    [team(london), 2, team(houston), 3, false],
     [team(lagladiators), 3, team(dallas), 1, false],
     [team(lavaliant), 4, team(shanghai), 0, false],
     [team(seoul), 4, team(sanfrancisco), 0, false],
     [team(florida), 1, team(philadelphia), 3, false],
     [team(houston), 0, team(boston), 4, false],
     [team(newyork), 4, team(london), 0, false]],
-    [record(team(sanfrancisco), 1, 1, -2, [[lagladiators, 2], [seoul, -4]], [[lagladiators, 1], [seoul, -1]], []),
-    record(team(lavaliant), 2, 0, 8, [[seoul, 4], [shanghai, 4]], [[seoul, 1], [shanghai, 1]], []),
-    record(team(london), 0, 2, -5, [[houston, -1], [newyork, -4]], [[houston, -1], [newyork, -1]], []),
-    record(team(dallas), 1, 1, 0, [[shanghai, 2], [lagladiators, -2]], [[shanghai, 1], [lagladiators, -1]], []),
-    record(team(seoul), 1, 1, 0, [[lavaliant, -4], [sanfrancisco, 4]], [[lavaliant, -1], [sanfrancisco, 1]], []),
-    record(team(philadelphia), 1, 1, 1, [[boston, -1], [florida, 2]], [[boston -1], [florida, 1]], []),
-    record(team(florida), 0, 2, -6, [[newyork, -4], [philadelphia, -2]], [[newyork, -1], [philadelphia, -1]], []),
-    record(team(houston), 1, 1, -3, [[london, 1], [boston, -4]], [[london, 1], [boston, -1]], []),
-    record(team(lagladiators), 1, 1, 0, [[sanfrancisco, -2], [dallas, 2]], [[sanfrancisco, -1], [dallas, 1]], []),
-    record(team(newyork), 2, 0, 8, [[florida, 4], [london, 4]], [[florida, 1], [london, 1]], []),
-    record(team(boston), 2, 0, 5, [[philadelphia, 1], [houston, 4]], [[philadelphia, 1], [houston, 1]], []),
-    record(team(shanghai), 0, 2, -6, [[dallas, -2], [lavaliant, -4]], [[dallas, -1], [lavaliant, -1]], [])],
+    [record(team(newyork),2,0,8,[[london,4],[florida,4],[boston,0],[philadelphia,0],[seoul,0],[sanfrancisco,0],[houston,0],[lavaliant,0],[dallas,0],[lagladiators,0],
+        [shanghai,0]],[[london,1],[florida,1],[boston,0],[philadelphia,0],[seoul,0],[sanfrancisco,0],[houston,0],[lavaliant,0],[dallas,0],[lagladiators,0],[shanghai,0]],[]),
+    record(team(london),0,2,-5,[[newyork,-4],[houston,-1],[boston,0],[philadelphia,0],[dallas,0],[sanfrancisco,0],[lavaliant,0],[seoul,0],[lagladiators,0],[shanghai,0],
+        [florida,0]],[[newyork,-1],[houston,-1],[boston,0],[philadelphia,0],[dallas,0],[sanfrancisco,0],[lavaliant,0],[seoul,0],[lagladiators,0],[shanghai,0],[florida,0]],[]),
+    record(team(houston),1,1,-3,[[boston,-4],[london,1],[philadelphia,0],[dallas,0],[newyork,0],[sanfrancisco,0],[lavaliant,0],[lagladiators,0],[seoul,0],[shanghai,0],
+        [florida,0]],[[boston,-1],[london,1],[philadelphia,0],[dallas,0],[newyork,0],[sanfrancisco,0],[lavaliant,0],[lagladiators,0],[seoul,0],[shanghai,0],[florida,0]],[]),
+    record(team(boston),2,0,5,[[houston,4],[philadelphia,1],[london,0],[dallas,0],[newyork,0],[sanfrancisco,0],[lavaliant,0],[seoul,0],[lagladiators,0],[shanghai,0],
+        [florida,0]],[[houston,1],[philadelphia,1],[london,0],[dallas,0],[newyork,0],[sanfrancisco,0],[lavaliant,0],[seoul,0],[lagladiators,0],[shanghai,0],[florida,0]],[]),
+    record(team(florida),0,2,-6,[[philadelphia,-2],[newyork,-4],[boston,0],[dallas,0],[sanfrancisco,0],[houston,0],[lavaliant,0],[seoul,0],[lagladiators,0],[shanghai,0],
+        [london,0]],[[philadelphia,-1],[newyork,-1],[boston,0],[dallas,0],[sanfrancisco,0],[houston,0],[lavaliant,0],[seoul,0],[lagladiators,0],[shanghai,0],[london,0]],[]),
+    record(team(philadelphia),1,1,1,[[florida,2],[boston,-1],[london,0],[houston,0],[dallas,0],[newyork,0],[sanfrancisco,0],[lavaliant,0],[lagladiators,0],[seoul,0],
+        [shanghai,0]],[[florida,1],[boston,-1],[london,0],[houston,0],[dallas,0],[newyork,0],[sanfrancisco,0],[lavaliant,0],[lagladiators,0],[seoul,0],[shanghai,0]],[]),
+    record(team(seoul),1,1,0,[[sanfrancisco,4],[lavaliant,-4],[boston,0],[philadelphia,0],[florida,0],[newyork,0],[houston,0],[dallas,0],[lagladiators,0],[shanghai,0],
+        [london,0]],[[sanfrancisco,1],[lavaliant,-1],[boston,0],[philadelphia,0],[florida,0],[newyork,0],[houston,0],[dallas,0],[lagladiators,0],[shanghai,0],[london,0]],[]),
+    record(team(sanfrancisco),1,1,-2,[[seoul,-4],[lagladiators,2],[london,0],[houston,0],[dallas,0],[newyork,0],[philadelphia,0],[lavaliant,0],[shanghai,0],[boston,0],
+        [florida,0]],[[seoul,-1],[lagladiators,1],[london,0],[houston,0],[dallas,0],[newyork,0],[philadelphia,0],[lavaliant,0],[shanghai,0],[boston,0],[florida,0]],[]),
+    record(team(lavaliant),2,0,8,[[shanghai,4],[seoul,4],[london,0],[philadelphia,0],[dallas,0],[newyork,0],[sanfrancisco,0],[houston,0],[lagladiators,0],[boston,0],
+        [florida,0]],[[shanghai,1],[seoul,1],[london,0],[philadelphia,0],[dallas,0],[newyork,0],[sanfrancisco,0],[houston,0],[lagladiators,0],[boston,0],[florida,0]],[]),
+    record(team(shanghai),0,2,-6,[[lavaliant,-4],[dallas,-2],[london,0],[philadelphia,0],[newyork,0],[sanfrancisco,0],[houston,0],[seoul,0],[lagladiators,0],[boston,0],
+        [florida,0]],[[lavaliant,-1],[dallas,-1],[london,0],[philadelphia,0],[newyork,0],[sanfrancisco,0],[houston,0],[seoul,0],[lagladiators,0],[boston,0],[florida,0]],[]),
+    record(team(lagladiators),1,1,0,[[dallas,2],[sanfrancisco,-2],[london,0],[philadelphia,0],[newyork,0],[houston,0],[lavaliant,0],[seoul,0],[shanghai,0],[boston,0],
+        [florida,0]],[[dallas,1],[sanfrancisco,-1],[london,0],[philadelphia,0],[newyork,0],[houston,0],[lavaliant,0],[seoul,0],[shanghai,0],[boston,0],[florida,0]],[]),
+    record(team(dallas),1,1,0,[[lagladiators,-2],[shanghai,2],[boston,0],[philadelphia,0],[florida,0],[newyork,0],[sanfrancisco,0],[houston,0],[lavaliant,0],[seoul,0],
+        [london,0]],[[lagladiators,-1],[shanghai,1],[boston,0],[philadelphia,0],[florida,0],[newyork,0],[sanfrancisco,0],[houston,0],[lavaliant,0],[seoul,0],[london,0]],[])],
     [(1, [team(lavaliant),team(newyork)]),
     (3, [team(boston)]),
     (4, [team(philadelphia)]),
@@ -71,6 +84,10 @@ test(aWeekOfMatches) :-
     (9, [team(houston)]),
     (10, [team(london)]),
     (11, [team(florida),team(shanghai)])]).
+    % Testing the end of a stage, to test the other tie breakers
+%test(aWeekOfMatches) :-
+    %aWeekOfMatches([record(team(boston), 8, 0, 15, 
+
 
 tester() :- aWeekOfMatches([record(team(sanfrancisco), 0, 0, 0, [[london, 0], [houston, 0], [dallas, 0], [newyork, 0]], [[london, 0], [houston, 0], [dallas, 0], [newyork, 0]], []),
 record(team(london), 0, 0, 0, [[sanfrancisco, 0], [dallas, 0], [houston, 0], [newyork, 0]], [[sanfrancisco, 0], [dallas, 0], [houston, 0], [newyork, 0]], []),
@@ -83,7 +100,7 @@ record(team(newyork), 0, 0, 0, [[sanfrancisco, 0], [london, 0], [dallas, 0], [ho
 [team(sanfrancisco), 3, team(dallas), 2, false],
 [team(newyork), 4, team(london), 0, false]], X, Y), print(X), print(Y).
 
-tester2() :- 
+tester2() :-
     aWeekOfMatches([record(team(sanfrancisco), 0, 0, 0, [[london, 0], [houston, 0], [dallas, 0], [newyork, 0], [philadelphia, 0], [lavaliant, 0],
     [lagladiators, 0], [seoul, 0], [shanghai, 0], [boston, 0], [florida, 0]], [[london, 0], [houston, 0], [dallas, 0], [newyork, 0], [philadelphia, 0], [lavaliant, 0],
     [lagladiators, 0], [seoul, 0], [shanghai, 0], [boston, 0], [florida, 0]], []),
@@ -125,7 +142,7 @@ tester2() :-
     [team(sanfrancisco), 3, team(lagladiators), 1, false],
     [team(florida), 0, team(newyork), 4, false],
     [team(philadelphia), 2, team(boston), 3, false],
-    [team(london), 2, team(houston), 3, team(houston), false],
+    [team(london), 2, team(houston), 3, false],
     [team(lagladiators), 3, team(dallas), 1, false],
     [team(lavaliant), 4, team(shanghai), 0, false],
     [team(seoul), 4, team(sanfrancisco), 0, false],
