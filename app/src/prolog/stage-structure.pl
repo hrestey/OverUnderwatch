@@ -160,15 +160,34 @@ aStageOfMatches(StartingRecords, [Week1, Week2, Week3, Week4, Week4], [Week1Reco
     aWeekOfMatches(Week3Standings, Week4, Week4Records, _), !,
     aWeekOfMatches(Week4Standings, Week5, EndingRecords, Standings), !.
 
+aggregateHeadToHeadMapDiffs([], [], Results).
+aggregateHeadToHeadMapDiffs(StageA, StageB, Results) :-
+    select([Team, MD1], StageA, UpdatedStageA),
+    select([Team, MD2], StageB, UpdatedStageB),
+    NewMD is [Team, MD1 + MD2],
+    aggregateTeamMapDiffs(UpdatedStageA, UpdatedStageB, [NewMD|Results]).
+
+aggregateHeadToHeadRecords([], [], Results).
+aggregateHeadToHeadRecords(StageA, StageB, Results) :-
+    select([Team, R1], StageA, UpdatedStageA),
+    select([Team, R2], StageB, UpdatedStageB),
+    NewR is [Team, R1 + R2].
+
 aggregateStageRecords([], StageRecords,  OverallRecords) :-
     OverallRecords = StageRecords.
-aggregateStageRecords([Stage|Remaining), OverallRecords) :-
+aggregateStageRecords([Stage|Remaining], OverallRecords) :-
     select(record(team(_), _, _, _, _, _, _), Stage, UpdatedStage),
     aggregateStageRecords([UpdatedStage|Remaining], [record(team(_), _, _, _, _, _, _)], OverallRecords).
-aggregateStageRecords([Stage|Remaining], [record(team(Team), W2, L2, MD2, HtHMD2, HtHR2, TieBreakers2)|Records], OverallRecords) :-
-    select(record(team(Team), W1, L1, MD1, HtHMD1, HtHR1, TieBreakers1), Stage, []),
+/*aggregateStageRecords([Stage|Remaining], [record(team(Team), W2, L2, MD2, HtHMD2, HtHR2, _)|Records], OverallRecords) :-
+    select(record(team(Team), W1, L1, MD1, HtHMD1, HtHR1, _), Stage, []), % <- Do I need this case??? Not sure if it is necessary, prolog may just handle the empty list on its own
     NewRecord is record(team(Team), W1 + W2, L1 + L2, MD1 + MD2, %Somehow need to aggregate Head to Head stuff and the Tiebreakers. Not sure yet
-    .
+    aggregateStageRecords(Remaining, [NewRecord|Records], OverallRecords).*/
+aggregateStageRecords([Stage|Remaining], [record(team(Team), W2, L2, MD2, HtHMD2, HtHR2, TieBreakers2)|Records], OverallRecords) :-
+    select(record(team(Team), W1, L1, MD1, HtHMD1, HtHR1, TieBreakesr1), Stage, UpdatedStage),
+    aggregateHeadToHeadMapDiffs(HtHMD1, HtHMD2, NewHtHMD),
+    aggregateHeadToHeadRecords(HtHR1, HtHR2, NewHtHR),
+    NewRecord is record(team(Team), W1 + W2, L1 + L2, MD1 + MD2, NewHtHMD, NewHtHR, []),
+    aggregateStageRecords([UpdatedStage|Remaining], [NewRecord|Records], OverallRecords).
 
 aFullOWLSeason(StartingRecords, [Stage1Schedule, Stage2Schedule, Stage3Schedule, Stage4Schedule], [Stage1Records, Stage2Records, Stage3Records, Stage4Records], OverallRecords, OverallStandings) :-
     aStageOfMatches(StartingRecords, Stage1Schedule, _, Stage1Records, _),
