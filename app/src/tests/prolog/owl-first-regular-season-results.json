@@ -1,0 +1,3484 @@
+{
+ "stage": [
+  {
+   "name": "Stage 1",
+   "weeks": [
+    {
+     "name": "Week 1",
+     "matches": [
+      {
+       "teams": [
+        {
+         "name": "San Francisco Shock",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10223"
+        },
+        {
+         "name": "Los Angeles Valiant",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10223"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Shanghai Dragons",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10224"
+        },
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10224"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Dallas Fuel",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10225"
+        },
+        {
+         "name": "Seoul Dynasty",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10225"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "London Spitfire",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10226"
+        },
+        {
+         "name": "Florida Mayhem",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10226"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Philadelphia Fusion",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10227"
+        },
+        {
+         "name": "Houston Outlaws",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10227"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Boston Uprising",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10228"
+        },
+        {
+         "name": "New York Excelsior",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10228"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Valiant",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10229"
+        },
+        {
+         "name": "Dallas Fuel",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10229"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Florida Mayhem",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10230"
+        },
+        {
+         "name": "Boston Uprising",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10230"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "San Francisco Shock",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10231"
+        },
+        {
+         "name": "Shanghai Dragons",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10231"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "London Spitfire",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10232"
+        },
+        {
+         "name": "Philadelphia Fusion",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10232"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "New York Excelsior",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10233"
+        },
+        {
+         "name": "Houston Outlaws",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10233"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Seoul Dynasty",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10234"
+        },
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10234"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Week 2",
+     "matches": [
+      {
+       "teams": [
+        {
+         "name": "San Francisco Shock",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10235"
+        },
+        {
+         "name": "Philadelphia Fusion",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10235"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Florida Mayhem",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10236"
+        },
+        {
+         "name": "Seoul Dynasty",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10236"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Houston Outlaws",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10237"
+        },
+        {
+         "name": "Shanghai Dragons",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10237"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Dallas Fuel",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10238"
+        },
+        {
+         "name": "Houston Outlaws",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10238"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "New York Excelsior",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10239"
+        },
+        {
+         "name": "Los Angeles Valiant",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10239"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Philadelphia Fusion",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10240"
+        },
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10240"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Seoul Dynasty",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10241"
+        },
+        {
+         "name": "Boston Uprising",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10241"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Shanghai Dragons",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10242"
+        },
+        {
+         "name": "Florida Mayhem",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10242"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "London Spitfire",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10243"
+        },
+        {
+         "name": "Dallas Fuel",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10243"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Valiant",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10244"
+        },
+        {
+         "name": "London Spitfire",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10244"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10245"
+        },
+        {
+         "name": "New York Excelsior",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10245"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Boston Uprising",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10246"
+        },
+        {
+         "name": "San Francisco Shock",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10246"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Week 3",
+     "matches": [
+      {
+       "teams": [
+        {
+         "name": "San Francisco Shock",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10247"
+        },
+        {
+         "name": "London Spitfire",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10247"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Shanghai Dragons",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10248"
+        },
+        {
+         "name": "Seoul Dynasty",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10248"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10249"
+        },
+        {
+         "name": "Los Angeles Valiant",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10249"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Boston Uprising",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10250"
+        },
+        {
+         "name": "London Spitfire",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10250"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Philadelphia Fusion",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10251"
+        },
+        {
+         "name": "New York Excelsior",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10251"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Houston Outlaws",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10252"
+        },
+        {
+         "name": "Florida Mayhem",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10252"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Seoul Dynasty",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10253"
+        },
+        {
+         "name": "New York Excelsior",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10253"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Shanghai Dragons",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10254"
+        },
+        {
+         "name": "Philadelphia Fusion",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10254"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Dallas Fuel",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10255"
+        },
+        {
+         "name": "San Francisco Shock",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10255"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Dallas Fuel",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10256"
+        },
+        {
+         "name": "Boston Uprising",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10256"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Valiant",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10257"
+        },
+        {
+         "name": "Florida Mayhem",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10257"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10258"
+        },
+        {
+         "name": "Houston Outlaws",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10258"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Week 4",
+     "matches": [
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Valiant",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10259"
+        },
+        {
+         "name": "Philadelphia Fusion",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10259"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Florida Mayhem",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10260"
+        },
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10260"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Houston Outlaws",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10261"
+        },
+        {
+         "name": "San Francisco Shock",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10261"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Philadelphia Fusion",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10262"
+        },
+        {
+         "name": "Dallas Fuel",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10262"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "New York Excelsior",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10263"
+        },
+        {
+         "name": "Shanghai Dragons",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10263"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "London Spitfire",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10264"
+        },
+        {
+         "name": "Seoul Dynasty",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10264"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "San Francisco Shock",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10265"
+        },
+        {
+         "name": "Florida Mayhem",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10265"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Seoul Dynasty",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10266"
+        },
+        {
+         "name": "Houston Outlaws",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10266"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10267"
+        },
+        {
+         "name": "Boston Uprising",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10267"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Shanghai Dragons",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10268"
+        },
+        {
+         "name": "London Spitfire",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10268"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Dallas Fuel",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10269"
+        },
+        {
+         "name": "New York Excelsior",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10269"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Boston Uprising",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10270"
+        },
+        {
+         "name": "Los Angeles Valiant",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10270"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Week 5",
+     "matches": [
+      {
+       "teams": [
+        {
+         "name": "Shanghai Dragons",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10564"
+        },
+        {
+         "name": "Dallas Fuel",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10564"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "San Francisco Shock",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10565"
+        },
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10565"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Valiant",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10566"
+        },
+        {
+         "name": "Seoul Dynasty",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10566"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Philadelphia Fusion",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10567"
+        },
+        {
+         "name": "Boston Uprising",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10567"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Florida Mayhem",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10568"
+        },
+        {
+         "name": "New York Excelsior",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10568"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "London Spitfire",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10569"
+        },
+        {
+         "name": "Houston Outlaws",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10569"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10570"
+        },
+        {
+         "name": "Dallas Fuel",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10570"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Seoul Dynasty",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10571"
+        },
+        {
+         "name": "San Francisco Shock",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10571"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Valiant",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10572"
+        },
+        {
+         "name": "Shanghai Dragons",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10572"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "New York Excelsior",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10573"
+        },
+        {
+         "name": "London Spitfire",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10573"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Houston Outlaws",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10574"
+        },
+        {
+         "name": "Boston Uprising",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10574"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Florida Mayhem",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10575"
+        },
+        {
+         "name": "Philadelphia Fusion",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10575"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Stage 2",
+   "weeks": [
+    {
+     "name": "Week 1",
+     "matches": [
+      {
+       "teams": [
+        {
+         "name": "Seoul Dynasty",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10278"
+        },
+        {
+         "name": "Los Angeles Valiant",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10278"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Dallas Fuel",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10279"
+        },
+        {
+         "name": "Shanghai Dragons",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10279"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10280"
+        },
+        {
+         "name": "San Francisco Shock",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10280"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Houston Outlaws",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10281"
+        },
+        {
+         "name": "London Spitfire",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10281"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "New York Excelsior",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10282"
+        },
+        {
+         "name": "Florida Mayhem",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10282"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Boston Uprising",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10283"
+        },
+        {
+         "name": "Philadelphia Fusion",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10283"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "London Spitfire",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10284"
+        },
+        {
+         "name": "New York Excelsior",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10284"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Dallas Fuel",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10285"
+        },
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10285"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "San Francisco Shock",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10286"
+        },
+        {
+         "name": "Seoul Dynasty",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10286"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Philadelphia Fusion",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10287"
+        },
+        {
+         "name": "Florida Mayhem",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10287"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Boston Uprising",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10288"
+        },
+        {
+         "name": "Houston Outlaws",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10288"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Shanghai Dragons",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10289"
+        },
+        {
+         "name": "Los Angeles Valiant",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10289"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Week 2",
+     "matches": [
+      {
+       "teams": [
+        {
+         "name": "Seoul Dynasty",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10290"
+        },
+        {
+         "name": "Dallas Fuel",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10290"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Valiant",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10291"
+        },
+        {
+         "name": "San Francisco Shock",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10291"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10292"
+        },
+        {
+         "name": "Shanghai Dragons",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10292"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Florida Mayhem",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10293"
+        },
+        {
+         "name": "London Spitfire",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10293"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Houston Outlaws",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10294"
+        },
+        {
+         "name": "Philadelphia Fusion",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10294"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "New York Excelsior",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10295"
+        },
+        {
+         "name": "Boston Uprising",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10295"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Boston Uprising",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10296"
+        },
+        {
+         "name": "Florida Mayhem",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10296"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10297"
+        },
+        {
+         "name": "Seoul Dynasty",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10297"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Dallas Fuel",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10298"
+        },
+        {
+         "name": "Los Angeles Valiant",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10298"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Philadelphia Fusion",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10299"
+        },
+        {
+         "name": "London Spitfire",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10299"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Houston Outlaws",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10300"
+        },
+        {
+         "name": "New York Excelsior",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10300"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Shanghai Dragons",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10301"
+        },
+        {
+         "name": "San Francisco Shock",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10301"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Week 3",
+     "matches": [
+      {
+       "teams": [
+        {
+         "name": "Seoul Dynasty",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10302"
+        },
+        {
+         "name": "Shanghai Dragons",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10302"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "San Francisco Shock",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10303"
+        },
+        {
+         "name": "Dallas Fuel",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10303"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Valiant",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10304"
+        },
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10304"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Philadelphia Fusion",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10305"
+        },
+        {
+         "name": "Seoul Dynasty",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10305"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Houston Outlaws",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10306"
+        },
+        {
+         "name": "Los Angeles Valiant",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10306"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Boston Uprising",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10307"
+        },
+        {
+         "name": "Shanghai Dragons",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10307"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "London Spitfire",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10308"
+        },
+        {
+         "name": "Boston Uprising",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10308"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "New York Excelsior",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10309"
+        },
+        {
+         "name": "Philadelphia Fusion",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10309"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Florida Mayhem",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10310"
+        },
+        {
+         "name": "Houston Outlaws",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10310"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "London Spitfire",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10311"
+        },
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10311"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "New York Excelsior",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10312"
+        },
+        {
+         "name": "San Francisco Shock",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10312"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Florida Mayhem",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10313"
+        },
+        {
+         "name": "Dallas Fuel",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10313"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Week 4",
+     "matches": [
+      {
+       "teams": [
+        {
+         "name": "Boston Uprising",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10314"
+        },
+        {
+         "name": "Dallas Fuel",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10314"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "New York Excelsior",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10315"
+        },
+        {
+         "name": "Seoul Dynasty",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10315"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Philadelphia Fusion",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10316"
+        },
+        {
+         "name": "Shanghai Dragons",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10316"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Shanghai Dragons",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10317"
+        },
+        {
+         "name": "New York Excelsior",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10317"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Florida Mayhem",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10318"
+        },
+        {
+         "name": "Los Angeles Valiant",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10318"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Houston Outlaws",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10319"
+        },
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10319"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10320"
+        },
+        {
+         "name": "Florida Mayhem",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10320"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "London Spitfire",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10321"
+        },
+        {
+         "name": "San Francisco Shock",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10321"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Valiant",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10322"
+        },
+        {
+         "name": "Boston Uprising",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10322"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Seoul Dynasty",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10323"
+        },
+        {
+         "name": "London Spitfire",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10323"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "San Francisco Shock",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10324"
+        },
+        {
+         "name": "Houston Outlaws",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10324"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Dallas Fuel",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10325"
+        },
+        {
+         "name": "Philadelphia Fusion",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10325"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Week 5",
+     "matches": [
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10576"
+        },
+        {
+         "name": "Philadelphia Fusion",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10576"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Florida Mayhem",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10577"
+        },
+        {
+         "name": "San Francisco Shock",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10577"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Shanghai Dragons",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10578"
+        },
+        {
+         "name": "Houston Outlaws",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10578"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Houston Outlaws",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10579"
+        },
+        {
+         "name": "Seoul Dynasty",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10579"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "New York Excelsior",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10580"
+        },
+        {
+         "name": "Dallas Fuel",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10580"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "San Francisco Shock",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10581"
+        },
+        {
+         "name": "Boston Uprising",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10581"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Seoul Dynasty",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10582"
+        },
+        {
+         "name": "Florida Mayhem",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10582"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Philadelphia Fusion",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10583"
+        },
+        {
+         "name": "Los Angeles Valiant",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10583"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "London Spitfire",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10584"
+        },
+        {
+         "name": "Shanghai Dragons",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10584"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Dallas Fuel",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10585"
+        },
+        {
+         "name": "London Spitfire",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10585"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Valiant",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10586"
+        },
+        {
+         "name": "New York Excelsior",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10586"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Boston Uprising",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10587"
+        },
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10587"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Stage 3",
+   "weeks": [
+    {
+     "name": "Week 1",
+     "matches": [
+      {
+       "teams": [
+        {
+         "name": "Shanghai Dragons",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10333"
+        },
+        {
+         "name": "Dallas Fuel",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10333"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Valiant",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10334"
+        },
+        {
+         "name": "Seoul Dynasty",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10334"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "San Francisco Shock",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10335"
+        },
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10335"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Florida Mayhem",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10336"
+        },
+        {
+         "name": "New York Excelsior",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10336"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Philadelphia Fusion",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10337"
+        },
+        {
+         "name": "Boston Uprising",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10337"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "London Spitfire",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10338"
+        },
+        {
+         "name": "Houston Outlaws",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10338"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10339"
+        },
+        {
+         "name": "Dallas Fuel",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10339"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Valiant",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10340"
+        },
+        {
+         "name": "Shanghai Dragons",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10340"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Seoul Dynasty",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10341"
+        },
+        {
+         "name": "San Francisco Shock",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10341"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Florida Mayhem",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10342"
+        },
+        {
+         "name": "Philadelphia Fusion",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10342"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Houston Outlaws",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10343"
+        },
+        {
+         "name": "Boston Uprising",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10343"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "New York Excelsior",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10344"
+        },
+        {
+         "name": "London Spitfire",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10344"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Week 2",
+     "matches": [
+      {
+       "teams": [
+        {
+         "name": "Shanghai Dragons",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10345"
+        },
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10345"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "San Francisco Shock",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10346"
+        },
+        {
+         "name": "Los Angeles Valiant",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10346"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Dallas Fuel",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10347"
+        },
+        {
+         "name": "Seoul Dynasty",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10347"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Boston Uprising",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10348"
+        },
+        {
+         "name": "New York Excelsior",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10348"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "London Spitfire",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10349"
+        },
+        {
+         "name": "Florida Mayhem",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10349"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Philadelphia Fusion",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10350"
+        },
+        {
+         "name": "Houston Outlaws",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10350"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Valiant",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10351"
+        },
+        {
+         "name": "Dallas Fuel",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10351"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "San Francisco Shock",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10352"
+        },
+        {
+         "name": "Shanghai Dragons",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10352"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Seoul Dynasty",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10353"
+        },
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10353"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "London Spitfire",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10354"
+        },
+        {
+         "name": "Philadelphia Fusion",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10354"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "New York Excelsior",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10355"
+        },
+        {
+         "name": "Houston Outlaws",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10355"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Florida Mayhem",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10356"
+        },
+        {
+         "name": "Boston Uprising",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10356"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Week 3",
+     "matches": [
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10357"
+        },
+        {
+         "name": "Los Angeles Valiant",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10357"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Dallas Fuel",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10358"
+        },
+        {
+         "name": "San Francisco Shock",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10358"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Shanghai Dragons",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10359"
+        },
+        {
+         "name": "Seoul Dynasty",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10359"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Houston Outlaws",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10360"
+        },
+        {
+         "name": "Florida Mayhem",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10360"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Boston Uprising",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10361"
+        },
+        {
+         "name": "London Spitfire",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10361"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Philadelphia Fusion",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10362"
+        },
+        {
+         "name": "New York Excelsior",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10362"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Philadelphia Fusion",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10363"
+        },
+        {
+         "name": "San Francisco Shock",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10363"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Florida Mayhem",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10364"
+        },
+        {
+         "name": "Shanghai Dragons",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10364"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Boston Uprising",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10365"
+        },
+        {
+         "name": "Seoul Dynasty",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10365"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "London Spitfire",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10366"
+        },
+        {
+         "name": "Los Angeles Valiant",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10366"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "New York Excelsior",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10367"
+        },
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10367"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Houston Outlaws",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10368"
+        },
+        {
+         "name": "Dallas Fuel",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10368"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Week 4",
+     "matches": [
+      {
+       "teams": [
+        {
+         "name": "Shanghai Dragons",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10369"
+        },
+        {
+         "name": "Boston Uprising",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10369"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Valiant",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10370"
+        },
+        {
+         "name": "Houston Outlaws",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10370"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Dallas Fuel",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10371"
+        },
+        {
+         "name": "Florida Mayhem",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10371"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10372"
+        },
+        {
+         "name": "London Spitfire",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10372"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "San Francisco Shock",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10373"
+        },
+        {
+         "name": "New York Excelsior",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10373"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Seoul Dynasty",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10374"
+        },
+        {
+         "name": "Philadelphia Fusion",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10374"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Dallas Fuel",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10375"
+        },
+        {
+         "name": "Boston Uprising",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10375"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10376"
+        },
+        {
+         "name": "Houston Outlaws",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10376"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Valiant",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10377"
+        },
+        {
+         "name": "Florida Mayhem",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10377"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "San Francisco Shock",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10378"
+        },
+        {
+         "name": "London Spitfire",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10378"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Seoul Dynasty",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10379"
+        },
+        {
+         "name": "New York Excelsior",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10379"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Shanghai Dragons",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10380"
+        },
+        {
+         "name": "Philadelphia Fusion",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10380"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Week 5",
+     "matches": [
+      {
+       "teams": [
+        {
+         "name": "Philadelphia Fusion",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10588"
+        },
+        {
+         "name": "Dallas Fuel",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10588"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Florida Mayhem",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10589"
+        },
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10589"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Houston Outlaws",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10590"
+        },
+        {
+         "name": "San Francisco Shock",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10590"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "San Francisco Shock",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10591"
+        },
+        {
+         "name": "Florida Mayhem",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10591"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Boston Uprising",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10592"
+        },
+        {
+         "name": "Los Angeles Valiant",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10592"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Dallas Fuel",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10593"
+        },
+        {
+         "name": "New York Excelsior",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10593"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10594"
+        },
+        {
+         "name": "Boston Uprising",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10594"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "New York Excelsior",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10595"
+        },
+        {
+         "name": "Shanghai Dragons",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10595"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "London Spitfire",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10596"
+        },
+        {
+         "name": "Seoul Dynasty",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10596"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Shanghai Dragons",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10597"
+        },
+        {
+         "name": "London Spitfire",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10597"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Seoul Dynasty",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10598"
+        },
+        {
+         "name": "Houston Outlaws",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10598"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Valiant",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10599"
+        },
+        {
+         "name": "Philadelphia Fusion",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10599"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Stage 4",
+   "weeks": [
+    {
+     "name": "Week 1",
+     "matches": [
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10443"
+        },
+        {
+         "name": "San Francisco Shock",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10443"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Seoul Dynasty",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10444"
+        },
+        {
+         "name": "Los Angeles Valiant",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10444"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Dallas Fuel",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10445"
+        },
+        {
+         "name": "Shanghai Dragons",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10445"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Boston Uprising",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10446"
+        },
+        {
+         "name": "Philadelphia Fusion",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10446"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "New York Excelsior",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10447"
+        },
+        {
+         "name": "Florida Mayhem",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10447"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Houston Outlaws",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10448"
+        },
+        {
+         "name": "London Spitfire",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10448"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Dallas Fuel",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10449"
+        },
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10449"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Boston Uprising",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10450"
+        },
+        {
+         "name": "Houston Outlaws",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10450"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "San Francisco Shock",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10451"
+        },
+        {
+         "name": "Seoul Dynasty",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10451"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Philadelphia Fusion",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10452"
+        },
+        {
+         "name": "Florida Mayhem",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10452"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Shanghai Dragons",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10453"
+        },
+        {
+         "name": "Los Angeles Valiant",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10453"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "London Spitfire",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10454"
+        },
+        {
+         "name": "New York Excelsior",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10454"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Week 2",
+     "matches": [
+      {
+       "teams": [
+        {
+         "name": "Boston Uprising",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10455"
+        },
+        {
+         "name": "Dallas Fuel",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10455"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Florida Mayhem",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10456"
+        },
+        {
+         "name": "Los Angeles Valiant",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10456"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Houston Outlaws",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10457"
+        },
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10457"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "London Spitfire",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10458"
+        },
+        {
+         "name": "San Francisco Shock",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10458"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10459"
+        },
+        {
+         "name": "Florida Mayhem",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10459"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Philadelphia Fusion",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10460"
+        },
+        {
+         "name": "Shanghai Dragons",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10460"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Valiant",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10461"
+        },
+        {
+         "name": "Boston Uprising",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10461"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "New York Excelsior",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10462"
+        },
+        {
+         "name": "Seoul Dynasty",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10462"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "San Francisco Shock",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10463"
+        },
+        {
+         "name": "Houston Outlaws",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10463"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Seoul Dynasty",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10464"
+        },
+        {
+         "name": "London Spitfire",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10464"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Shanghai Dragons",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10465"
+        },
+        {
+         "name": "New York Excelsior",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10465"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Dallas Fuel",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10466"
+        },
+        {
+         "name": "Philadelphia Fusion",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10466"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Week 3",
+     "matches": [
+      {
+       "teams": [
+        {
+         "name": "New York Excelsior",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10467"
+        },
+        {
+         "name": "Philadelphia Fusion",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10467"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Seoul Dynasty",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10468"
+        },
+        {
+         "name": "Shanghai Dragons",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10468"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Valiant",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10469"
+        },
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10469"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "London Spitfire",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10470"
+        },
+        {
+         "name": "Boston Uprising",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10470"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "San Francisco Shock",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10471"
+        },
+        {
+         "name": "Dallas Fuel",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10471"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Philadelphia Fusion",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10472"
+        },
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10472"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Houston Outlaws",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10473"
+        },
+        {
+         "name": "Shanghai Dragons",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10473"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Florida Mayhem",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10474"
+        },
+        {
+         "name": "Seoul Dynasty",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10474"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Boston Uprising",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10475"
+        },
+        {
+         "name": "San Francisco Shock",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10475"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "London Spitfire",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10476"
+        },
+        {
+         "name": "Dallas Fuel",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10476"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "New York Excelsior",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10477"
+        },
+        {
+         "name": "Los Angeles Valiant",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10477"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Florida Mayhem",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10478"
+        },
+        {
+         "name": "Houston Outlaws",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10478"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Week 4",
+     "matches": [
+      {
+       "teams": [
+        {
+         "name": "Seoul Dynasty",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10479"
+        },
+        {
+         "name": "Boston Uprising",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10479"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Shanghai Dragons",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10480"
+        },
+        {
+         "name": "Florida Mayhem",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10480"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Dallas Fuel",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10481"
+        },
+        {
+         "name": "Houston Outlaws",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10481"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Valiant",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10482"
+        },
+        {
+         "name": "London Spitfire",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10482"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10483"
+        },
+        {
+         "name": "New York Excelsior",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10483"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "San Francisco Shock",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10484"
+        },
+        {
+         "name": "Philadelphia Fusion",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10484"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Boston Uprising",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10485"
+        },
+        {
+         "name": "Shanghai Dragons",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10485"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Florida Mayhem",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10486"
+        },
+        {
+         "name": "Dallas Fuel",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10486"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Philadelphia Fusion",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10487"
+        },
+        {
+         "name": "Seoul Dynasty",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10487"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "London Spitfire",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10488"
+        },
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10488"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "New York Excelsior",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10489"
+        },
+        {
+         "name": "San Francisco Shock",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10489"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Houston Outlaws",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10490"
+        },
+        {
+         "name": "Los Angeles Valiant",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10490"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "name": "Week 5",
+     "matches": [
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10621"
+        },
+        {
+         "name": "Shanghai Dragons",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10621"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Valiant",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10622"
+        },
+        {
+         "name": "San Francisco Shock",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10622"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Seoul Dynasty",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10623"
+        },
+        {
+         "name": "Dallas Fuel",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10623"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Houston Outlaws",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10624"
+        },
+        {
+         "name": "Philadelphia Fusion",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10624"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Florida Mayhem",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10625"
+        },
+        {
+         "name": "London Spitfire",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10625"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "New York Excelsior",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10626"
+        },
+        {
+         "name": "Boston Uprising",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10626"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Houston Outlaws",
+         "score": "2",
+         "score_url": "https://overwatchleague.com/matches/10627"
+        },
+        {
+         "name": "New York Excelsior",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10627"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Los Angeles Gladiators",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10628"
+        },
+        {
+         "name": "Seoul Dynasty",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10628"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Dallas Fuel",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10629"
+        },
+        {
+         "name": "Los Angeles Valiant",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10629"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Philadelphia Fusion",
+         "score": "3",
+         "score_url": "https://overwatchleague.com/matches/10630"
+        },
+        {
+         "name": "London Spitfire",
+         "score": "1",
+         "score_url": "https://overwatchleague.com/matches/10630"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Shanghai Dragons",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10631"
+        },
+        {
+         "name": "San Francisco Shock",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10631"
+        }
+       ]
+      },
+      {
+       "teams": [
+        {
+         "name": "Boston Uprising",
+         "score": "4",
+         "score_url": "https://overwatchleague.com/matches/10632"
+        },
+        {
+         "name": "Florida Mayhem",
+         "score": "0",
+         "score_url": "https://overwatchleague.com/matches/10632"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
