@@ -153,12 +153,12 @@ aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords, Standings) :-
     NewTieBreakers is [Team1|OldTieBreakers],
     aWeekOfMatches([record(team(Team2), W, L, MD, HtHMD, HtHR, NewTieBreakers)|UpdatedStartingRecords], Schedule, EndingRecords, Standings), !.
 
-aStageOfMatches(StartingRecords, [Week1, Week2, Week3, Week4, Week4], [Week1Records, Week2Records, Week3Records, Week4Records, EndingRecords], EndingRecords, Standings) :-
+aStageOfMatches(StartingRecords, [Week1, Week2, Week3, Week4, Week5], [Week1Records, Week2Records, Week3Records, Week4Records, EndingRecords], EndingRecords, Standings) :-
     aWeekOfMatches(StartingRecords, Week1, Week1Records, _), !,
-    aWeekOfMatches(Week1Standings, Week2, Week2Records, _), !,
-    aWeekOfMatches(Week2Standings, Week3, Week3Records, _), !,
-    aWeekOfMatches(Week3Standings, Week4, Week4Records, _), !,
-    aWeekOfMatches(Week4Standings, Week5, EndingRecords, Standings), !.
+    aWeekOfMatches(Week1Records, Week2, Week2Records, _), !,
+    aWeekOfMatches(Week2Records, Week3, Week3Records, _), !,
+    aWeekOfMatches(Week3Records, Week4, Week4Records, _), !,
+    aWeekOfMatches(Week4Records, Week5, EndingRecords, Standings), !.
 
 aggregateHeadToHeadMapDiffs([], [], []).
 aggregateHeadToHeadMapDiffs(StageA, StageB, [NewMD|Rest]) :-
@@ -179,8 +179,8 @@ aggregateStageRecords([Stage|Remaining], OverallRecords) :-
     aggregateStageRecords([UpdatedStage|Remaining], [record(team(_), _, _, _, _, _, _)], OverallRecords).
 aggregateStageRecords([], StageRecords,  OverallRecords) :-
     OverallRecords = StageRecords.
-aggregateStageRecords([Stage|Remaining], [record(team(Team), W2, L2, MD2, HtHMD2, HtHR2, TieBreakers2)|Records], OverallRecords) :-
-    select(record(team(Team), W1, L1, MD1, HtHMD1, HtHR1, TieBreakers1), Stage, UpdatedStage),
+aggregateStageRecords([Stage|Remaining], [record(team(Team), W2, L2, MD2, HtHMD2, HtHR2, [_])|Records], OverallRecords) :-
+    select(record(team(Team), W1, L1, MD1, HtHMD1, HtHR1, [_]), Stage, UpdatedStage),
     aggregateHeadToHeadMapDiffs(HtHMD1, HtHMD2, NewHtHMD),
     aggregateHeadToHeadRecords(HtHR1, HtHR2, NewHtHR),
     NewRecord = record(team(Team), W1 + W2, L1 + L2, MD1 + MD2, NewHtHMD, NewHtHR, []),
@@ -194,15 +194,48 @@ aFullOWLSeason(StartingRecords, [Stage1Schedule, Stage2Schedule, Stage3Schedule,
     aggregateStageRecords([Stage1Records, Stage2Records, Stage3Records, Stage4Records], OverallRecords),
     teamStandings(OverallRecords, OverallStandings).
 
+extractJsonIndividualMatches([], []).
+extractJsonIndividualMatches([Match|Remaining], [[team(Team1), Score1, team(Team2), Score2, false]|MatchesRest]) :-
+    Match = [json([X]), json([Y])],
+    member(name = Team1Full, X),
+    member(score = Score1, X),
+    member(name = Team2Full, Y),
+    member(score = Score2, Y),
+    translate(Team1, Team1Full),
+    translate(Team2, Team2Full),
+    extractJsonIndividualMatches(Remaining, MatchesRest).
+
+extractJsonMatches([], []).
+extractJsonMatches(Json, [Matches|MatchesRest]) :-
+    print('checkpoint'),
+    print(Json),
+    select(json([matches = UnparsedMatches]), Json, Rest),
+    extractJsonMatches(Rest, MatchesRest),
+    print('here'),
+    print(UnparsedMatches), nl,
+    findall(Match, member(json([teams = Match]), UnparsedMatches), SemiparsedMatches),
+    extractJsonIndividualMatches(SemiparsedMatches, Matches).
+extractJsonMatches(NestedMatches, ParsedMatches) :-
+    flatten(NestedMatches, Matches), 
+    extractJsonMatches(Matches, ParsedMatches).
+
+extractJsonStageWeeks(Stage, Weeks) :-
+    findall(Week, member(weeks = Week, Stage), Weeks).
+
+feedJsonStageWeeks([], []).
+feedJsonStageWeeks([json(Stage)|Rest], [ParsedStage|ParsedRest]) :-
+    extractJsonStageWeeks(Stage, ParsedStage),
+    feedJsonStageWeeks(Rest, ParsedRest).
+feedJsonStageWeeks(NestedStages,  ParsedStages) :-
+    flatten(NestedStages, Stages),
+    feedJsonStageWeeks(Stages, ParsedStages).
+
 extractJsonStages([], []).
 extractJsonStages(Json, [Stage|StagesRest]) :-
     Json = json([stage = Stage|Rest]),
     extractJsonStages(Rest, StagesRest).
 
-
-
-extractScheduleFromJson(Json, Schedule) :-
-    extractJsonStages(Json, UnparsedStages),
-    extractJsonWeeks(UnparsedStages, StagesWeeksParsed),
-    extractJsonMatches(StagesWeeksParsed, StagesMatchesParsed),
-    Schedule = StagesMatchesParsed.
+extractScheduleFromJson(Json, Matches) :-
+    extractJsonStages(Json, Stages),
+    feedJsonStageWeeks(Stages, Weeks),
+    extractJsonMatches(Weeks, Matches).
