@@ -202,48 +202,6 @@ aggregateTeamRecords([Record1|Rest], Record2, FinalRecord) :-
     NewRecord = record(team(Team), W3, L3, MD3, HtHMD3, HtHR3, []),
     aggregateTeamRecords(Rest, NewRecord, FinalRecord).
 
-%aggregateStageRecords([Stage|Remaining], OverallRecords) :-
-%    select(record(team(Team), W, L, MD, HtHMD, HtHR, [_]), Stage, UpdatedStage),
-%    aggregateStageRecords([UpdatedStage|Remaining], [record(team(Team), W, L, MD, HtHMD, HtHR, [])], OverallRecords).
-%aggregateStageRecords([], Records,  Records) :-
-%    nl, print("Base case 1: "), print(Records).
-%aggregateStageRecords([[]], Records, Records) :-
-%    nl, print("Base case 2: "), print(Records).
-%aggregateStageRecords([Stage|Remaining], Records, OverallRecords) :-
-%    select(record(team(Team), W1, L1, MD1, HtHMD1, HtHR1, [_]), Stage, []),
-%    select(record(team(Team), W2, L2, MD2, HtHMD2, HtHR2, []), Records, Rest),
-%    aggregateHeadToHeadMapDiffs(HtHMD1, HtHMD2, NewHtHMD),
-%    aggregateHeadToHeadRecords(HtHR1, HtHR2, NewHtHR),
-%    NewW is W1 + W2,
-%    NewL is L1 + L2,
-%    NewMD is MD1 + MD2,
-%    NewRecord = record(team(Team), NewW, NewL, NewMD, NewHtHMD, NewHtHR, []),
-%    aggregateStageRecords(Remaining, [NewRecord|Rest], OverallRecords).
-%aggregateStageRecords([Stage|Remaining], Records, OverallRecords) :-
-%    select(record(team(Team), W1, L1, MD1, HtHMD1, HtHR1, [_]), Stage, UpdatedStage),
-%    select(record(team(Team), W2, L2, MD2, HtHMD2, HtHR2, []), Records, Rest),
-%    aggregateHeadToHeadMapDiffs(HtHMD1, HtHMD2, NewHtHMD),
-%    aggregateHeadToHeadRecords(HtHR1, HtHR2, NewHtHR),
-%    NewW is W1 + W2,
-%    NewL is L1 + L2,
-%    NewMD is MD1 + MD2,
-%    NewRecord = record(team(Team), NewW, NewL, NewMD, NewHtHMD, NewHtHR, []),
-%    aggregateStageRecords([UpdatedStage|Remaining], [NewRecord|Rest], OverallRecords).
-%aggregateStageRecords([Stage|Remaining], Records, OverallRecords) :-
-%    select(record(team(Team), W, L, MD, HtHMD, HtHR, Tiebreakers), Stage, []),
-%    aggregateStageRecords(Remaining, [record(team(Team), W, L, MD, HtHMD, HtHR, Tiebreakers)|Records], OverallRecords).
-%aggregateStageRecords([Stage|Remaining], Records, OverallRecords) :-
-%    select(record(team(Team), W, L, MD, HtHMD, HtHR, Tiebreakers), Stage, UpdatedStage),
-%    aggregateStageRecords([UpdatedStage|Remaining], [record(team(Team), W, L, MD, HtHMD, HtHR, Tiebreakers)|Records], OverallRecords).
-
-%aFullOWLSeason(StartingRecords, [Stage1Schedule, Stage2Schedule, Stage3Schedule, Stage4Schedule], [Stage1Records, Stage2Records, Stage3Records, Stage4Records], OverallRecords, OverallStandings) :-
-%    aStageOfMatches(StartingRecords, Stage1Schedule, _, Stage1Records, _),
-%    aStageOfMatches(StartingRecords, Stage2Schedule, _, Stage2Records, _),
-%    aStageOfMatches(StartingRecords, Stage3Schedule, _, Stage3Records, _),
-%    aStageOfMatches(StartingRecords, Stage4Schedule, _, Stage4Records, _),
-%    aggregateStageRecords([Stage1Records, Stage2Records, Stage3Records, Stage4Records], OverallRecords),
-%    teamStandings(OverallRecords, OverallStandings).
-
 aFullOWLSeason(StartingRecords, [Stage1Schedule, Stage2Schedule, Stage3Schedule, Stage4Schedule], [Stage1Records, Stage2Records, Stage3Records, Stage4Records], OverallRecords, OverallStandings) :-
     aStageOfMatches(StartingRecords, Stage1Schedule, _, Stage1Records, _),
     aStageOfMatches(StartingRecords, Stage2Schedule, _, Stage2Records, _),
