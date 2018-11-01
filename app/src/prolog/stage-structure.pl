@@ -164,78 +164,130 @@ aggregateHeadToHeadMapDiffs([], [], []).
 aggregateHeadToHeadMapDiffs(StageA, StageB, [NewMD|Rest]) :-
     select([Team, MD1], StageA, UpdatedStageA),
     select([Team, MD2], StageB, UpdatedStageB),
-    NewMD = [Team, MD1 + MD2],
-    aggregateTeamMapDiffs(UpdatedStageA, UpdatedStageB, Rest).
+    MD3 is MD1 + MD2,
+    NewMD = [Team, MD3],
+    aggregateHeadToHeadMapDiffs(UpdatedStageA, UpdatedStageB, Rest).
 
 aggregateHeadToHeadRecords([], [], []).
 aggregateHeadToHeadRecords(StageA, StageB, [NewR|Rest]) :-
     select([Team, R1], StageA, UpdatedStageA),
     select([Team, R2], StageB, UpdatedStageB),
-    NewR = [Team, R1 + R2],
+    R3 is R1 + R2,
+    NewR = [Team, R3],
     aggregateHeadToHeadRecords(UpdatedStageA, UpdatedStageB, Rest).
 
-aggregateStageRecords([Stage|Remaining], OverallRecords) :-
-    select(record(team(_), _, _, _, _, _, _), Stage, UpdatedStage),
-    aggregateStageRecords([UpdatedStage|Remaining], [record(team(_), _, _, _, _, _, _)], OverallRecords).
-aggregateStageRecords([], StageRecords,  OverallRecords) :-
-    OverallRecords = StageRecords.
-aggregateStageRecords([Stage|Remaining], [record(team(Team), W2, L2, MD2, HtHMD2, HtHR2, [_])|Records], OverallRecords) :-
-    select(record(team(Team), W1, L1, MD1, HtHMD1, HtHR1, [_]), Stage, UpdatedStage),
-    aggregateHeadToHeadMapDiffs(HtHMD1, HtHMD2, NewHtHMD),
-    aggregateHeadToHeadRecords(HtHR1, HtHR2, NewHtHR),
-    NewRecord = record(team(Team), W1 + W2, L1 + L2, MD1 + MD2, NewHtHMD, NewHtHR, []),
-    aggregateStageRecords([UpdatedStage|Remaining], [NewRecord|Records], OverallRecords).
+aggregateStageRecords(AllStageRecords, OverallRecords) :-
+    % find all distinct teams
+    setof(Team, V^V1^V2^V3^V4^V5^member(record(team(Team), V, V1, V2, V3, V4, V5), AllStageRecords), Teams),
+    aggregateStageRecordsPerTeam(Teams, AllStageRecords, OverallRecords).
+
+aggregateStageRecordsPerTeam([], _, []).
+aggregateStageRecordsPerTeam([Team|Teams], AllStageRecords, [TeamOverallRecords|RestOverallRecords]) :-
+    findall(Record, (Record = record(team(Team), _, _, _, _, _, _), member(Record, AllStageRecords)), TeamRecords),
+    aggregateTeamRecords(TeamRecords, TeamOverallRecords),
+    aggregateStageRecordsPerTeam(Teams, AllStageRecords, RestOverallRecords).
+
+aggregateTeamRecords([], []).
+aggregateTeamRecords([Record|RestRecords], FinalRecord) :-
+    aggregateTeamRecords(RestRecords, Record, FinalRecord).
+aggregateTeamRecords([], Record, Record).
+aggregateTeamRecords([Record1|Rest], Record2, FinalRecord) :-
+    Record1 = record(team(Team), W1, L1, MD1, HtHMD1, HtHR1, _),
+    Record2 = record(team(Team), W2, L2, MD2, HtHMD2, HtHR2, _),
+    W3 is W1 + W2,
+    L3 is L1 + L2,
+    MD3 is MD1 + MD2,
+    aggregateHeadToHeadMapDiffs(HtHMD1, HtHMD2, HtHMD3),
+    aggregateHeadToHeadRecords(HtHR1, HtHR2, HtHR3),
+    NewRecord = record(team(Team), W3, L3, MD3, HtHMD3, HtHR3, []),
+    aggregateTeamRecords(Rest, NewRecord, FinalRecord).
+
+%aggregateStageRecords([Stage|Remaining], OverallRecords) :-
+%    select(record(team(Team), W, L, MD, HtHMD, HtHR, [_]), Stage, UpdatedStage),
+%    aggregateStageRecords([UpdatedStage|Remaining], [record(team(Team), W, L, MD, HtHMD, HtHR, [])], OverallRecords).
+%aggregateStageRecords([], Records,  Records) :-
+%    nl, print("Base case 1: "), print(Records).
+%aggregateStageRecords([[]], Records, Records) :-
+%    nl, print("Base case 2: "), print(Records).
+%aggregateStageRecords([Stage|Remaining], Records, OverallRecords) :-
+%    select(record(team(Team), W1, L1, MD1, HtHMD1, HtHR1, [_]), Stage, []),
+%    select(record(team(Team), W2, L2, MD2, HtHMD2, HtHR2, []), Records, Rest),
+%    aggregateHeadToHeadMapDiffs(HtHMD1, HtHMD2, NewHtHMD),
+%    aggregateHeadToHeadRecords(HtHR1, HtHR2, NewHtHR),
+%    NewW is W1 + W2,
+%    NewL is L1 + L2,
+%    NewMD is MD1 + MD2,
+%    NewRecord = record(team(Team), NewW, NewL, NewMD, NewHtHMD, NewHtHR, []),
+%    aggregateStageRecords(Remaining, [NewRecord|Rest], OverallRecords).
+%aggregateStageRecords([Stage|Remaining], Records, OverallRecords) :-
+%    select(record(team(Team), W1, L1, MD1, HtHMD1, HtHR1, [_]), Stage, UpdatedStage),
+%    select(record(team(Team), W2, L2, MD2, HtHMD2, HtHR2, []), Records, Rest),
+%    aggregateHeadToHeadMapDiffs(HtHMD1, HtHMD2, NewHtHMD),
+%    aggregateHeadToHeadRecords(HtHR1, HtHR2, NewHtHR),
+%    NewW is W1 + W2,
+%    NewL is L1 + L2,
+%    NewMD is MD1 + MD2,
+%    NewRecord = record(team(Team), NewW, NewL, NewMD, NewHtHMD, NewHtHR, []),
+%    aggregateStageRecords([UpdatedStage|Remaining], [NewRecord|Rest], OverallRecords).
+%aggregateStageRecords([Stage|Remaining], Records, OverallRecords) :-
+%    select(record(team(Team), W, L, MD, HtHMD, HtHR, Tiebreakers), Stage, []),
+%    aggregateStageRecords(Remaining, [record(team(Team), W, L, MD, HtHMD, HtHR, Tiebreakers)|Records], OverallRecords).
+%aggregateStageRecords([Stage|Remaining], Records, OverallRecords) :-
+%    select(record(team(Team), W, L, MD, HtHMD, HtHR, Tiebreakers), Stage, UpdatedStage),
+%    aggregateStageRecords([UpdatedStage|Remaining], [record(team(Team), W, L, MD, HtHMD, HtHR, Tiebreakers)|Records], OverallRecords).
+
+%aFullOWLSeason(StartingRecords, [Stage1Schedule, Stage2Schedule, Stage3Schedule, Stage4Schedule], [Stage1Records, Stage2Records, Stage3Records, Stage4Records], OverallRecords, OverallStandings) :-
+%    aStageOfMatches(StartingRecords, Stage1Schedule, _, Stage1Records, _),
+%    aStageOfMatches(StartingRecords, Stage2Schedule, _, Stage2Records, _),
+%    aStageOfMatches(StartingRecords, Stage3Schedule, _, Stage3Records, _),
+%    aStageOfMatches(StartingRecords, Stage4Schedule, _, Stage4Records, _),
+%    aggregateStageRecords([Stage1Records, Stage2Records, Stage3Records, Stage4Records], OverallRecords),
+%    teamStandings(OverallRecords, OverallStandings).
 
 aFullOWLSeason(StartingRecords, [Stage1Schedule, Stage2Schedule, Stage3Schedule, Stage4Schedule], [Stage1Records, Stage2Records, Stage3Records, Stage4Records], OverallRecords, OverallStandings) :-
     aStageOfMatches(StartingRecords, Stage1Schedule, _, Stage1Records, _),
     aStageOfMatches(StartingRecords, Stage2Schedule, _, Stage2Records, _),
     aStageOfMatches(StartingRecords, Stage3Schedule, _, Stage3Records, _),
     aStageOfMatches(StartingRecords, Stage4Schedule, _, Stage4Records, _),
-    aggregateStageRecords([Stage1Records, Stage2Records, Stage3Records, Stage4Records], OverallRecords),
+    % collapse list of lists into list
+    append([Stage1Records, Stage2Records, Stage3Records, Stage4Records], AllStageRecords),
+    aggregateStageRecords(AllStageRecords, OverallRecords),
     teamStandings(OverallRecords, OverallStandings).
 
+
 extractJsonIndividualMatches([], []).
-extractJsonIndividualMatches([Match|Remaining], [[team(Team1), Score1, team(Team2), Score2, false]|MatchesRest]) :-
-    Match = [json([X]), json([Y])],
-    member(name = Team1Full, X),
-    member(score = Score1, X),
-    member(name = Team2Full, Y),
-    member(score = Score2, Y),
+extractJsonIndividualMatches([json(Match)|Remaining], [[team(Team1), Score1, team(Team2), Score2, false]|MatchesRest]) :-
+    member(team1 = Team1Full, Match),
+    member(t1score = StringScore1, Match),
+    member(team2 = Team2Full, Match), 
+    member(t2score = StringScore2, Match),
     translate(Team1, Team1Full),
     translate(Team2, Team2Full),
+    atom_number(StringScore1, Score1),
+    atom_number(StringScore2, Score2),
     extractJsonIndividualMatches(Remaining, MatchesRest).
 
+feedJsonMatches([], []).
+feedJsonMatches([Week|Rest], [Matches|MatchesRest]) :-
+    extractJsonIndividualMatches(Week, Matches),
+    feedJsonMatches(Rest, MatchesRest).
+
 extractJsonMatches([], []).
-extractJsonMatches(Json, [Matches|MatchesRest]) :-
-    print('checkpoint'),
-    print(Json),
-    select(json([matches = UnparsedMatches]), Json, Rest),
-    extractJsonMatches(Rest, MatchesRest),
-    print('here'),
-    print(UnparsedMatches), nl,
-    findall(Match, member(json([teams = Match]), UnparsedMatches), SemiparsedMatches),
-    extractJsonIndividualMatches(SemiparsedMatches, Matches).
-extractJsonMatches(NestedMatches, ParsedMatches) :-
-    flatten(NestedMatches, Matches), 
-    extractJsonMatches(Matches, ParsedMatches).
+extractJsonMatches([Stage|Rest], [Matches|MatchesRest]) :-
+    feedJsonMatches(Stage, Matches),
+    extractJsonMatches(Rest, MatchesRest).
 
-extractJsonStageWeeks(Stage, Weeks) :-
-    findall(Week, member(weeks = Week, Stage), Weeks).
-
-feedJsonStageWeeks([], []).
-feedJsonStageWeeks([json(Stage)|Rest], [ParsedStage|ParsedRest]) :-
-    extractJsonStageWeeks(Stage, ParsedStage),
-    feedJsonStageWeeks(Rest, ParsedRest).
-feedJsonStageWeeks(NestedStages,  ParsedStages) :-
-    flatten(NestedStages, Stages),
-    feedJsonStageWeeks(Stages, ParsedStages).
+extractJsonStageWeeks([], []).
+extractJsonStageWeeks([Json|Rest], [Weeks|WeeksRest]) :-
+    findall(Matches, member(json([matches = Matches]), Json), Weeks),
+    extractJsonStageWeeks(Rest, WeeksRest).
 
 extractJsonStages([], []).
-extractJsonStages(Json, [Stage|StagesRest]) :-
-    Json = json([stage = Stage|Rest]),
+extractJsonStages([Json|Rest], [Stage|StagesRest]) :-
+    Json = json([stage = Stage]), % extract all the matches from each week in the stage
     extractJsonStages(Rest, StagesRest).
 
 extractScheduleFromJson(Json, Matches) :-
     extractJsonStages(Json, Stages),
-    feedJsonStageWeeks(Stages, Weeks),
+    extractJsonStageWeeks(Stages, Weeks),
     extractJsonMatches(Weeks, Matches).
