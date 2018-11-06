@@ -93,3 +93,5 @@ test(aFullOWLSeason) :-
     (10,[team(dallas)]),
     (11,[team(florida)]),
     (12,[team(shanghai)])]).
+
+:- end_tests('../../prolog/stage-structure').
