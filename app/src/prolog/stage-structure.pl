@@ -1,4 +1,5 @@
 :- [teams].
+:- use_module(library(clpfd)).
 
 endOfStage(Wins, Losses) :-
     Sum is Wins + Losses,
@@ -79,7 +80,7 @@ tied(Record1, Record2) :-
 groupTeams(Record1, Record2, [Record3|Records], NumTeams, UpdatedNumTeams, RemainingRecords, [team(Team1)|GroupedTeams]) :-
     Record1 = record(team(Team1), _, _, _, _, _, _),
     tied(Record1, Record3),
-    NewNum is NumTeams + 1,
+    NewNum #= NumTeams + 1,
     groupTeams(Record2, Record3, Records, NewNum, UpdatedNumTeams, RemainingRecords, GroupedTeams).
 groupTeams(Record1, Record2, Records, NumTeams, NumTeams, Records, [team(Team1),team(Team2)]) :-
     Record1 = record(team(Team1), _, _, _, _, _, _),
@@ -89,11 +90,11 @@ assignStandings(_, [], []).
 assignStandings(Rank, [Record1,Record2|Records], [(Rank, GroupedTeams)|Rest]) :-
     tied(Record1, Record2),
     groupTeams(Record1, Record2, Records, 2, NumTeams, RemainingRecords, GroupedTeams),
-    NewRank is Rank + NumTeams,
+    NewRank #= Rank + NumTeams,
     assignStandings(NewRank, RemainingRecords, Rest).
 assignStandings(Rank, [Record|Records], [(Rank, [team(Team)])|Rest]) :-
     Record = record(team(Team), _, _, _, _, _, _),
-    NewRank is Rank + 1,
+    NewRank #= Rank + 1,
     assignStandings(NewRank, Records, Rest).
 
 teamStandings(Records, Standings) :-
@@ -105,16 +106,16 @@ updateHeadToHeadLists(HeadToHeadMapDiff, HeadToHeadRecord, Wins, Losses, Opponen
     select([Opponent, Maps], HeadToHeadMapDiff, UpdatedMapDiff),
     select([Opponent, Record], HeadToHeadRecord, UpdatedRecord),
     Wins > Losses,
-    Diff is Wins - Losses,
-    NewMaps is Maps + Diff,
-    NewRecord is Record + 1.
+    Diff #= Wins - Losses,
+    NewMaps #= Maps + Diff,
+    NewRecord #= Record + 1.
 updateHeadToHeadLists(HeadToHeadMapDiff, HeadToHeadRecord, Wins, Losses, Opponent, [[Opponent, NewMaps]|UpdatedMapDiff], [[Opponent, NewRecord]|UpdatedRecord]) :-
     select([Opponent, Maps], HeadToHeadMapDiff, UpdatedMapDiff),
     select([Opponent, Record], HeadToHeadRecord, UpdatedRecord),
     Losses > Wins,
-    Diff is Losses - Wins,
-    NewMaps is Maps - Diff,
-    NewRecord is Record - 1.
+    Diff #= Losses - Wins,
+    NewMaps #= Maps - Diff,
+    NewRecord #= Record - 1.
 
 aWeekOfMatches(Records, [], Records, Standings) :-
     teamStandings(Records, Standings), !.
@@ -122,8 +123,8 @@ aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords, Standings) :-
     Match = [team(Team1), W1, team(Team2), W2, false],
     select(record(team(Team1), OldW1, OldL1, OldMD1, OldHtHMD1, OldHtHR1, TieBreakers1), StartingRecords, UpdatedStartingRecords),
     select(record(team(Team2), OldW2, OldL2, OldMD2, OldHtHMD2, OldHtHR2, TieBreakers2), UpdatedStartingRecords, UpdatedStartingRecords2),
-    W1 > W2, NewW1 is OldW1 + 1, NewL2 is OldL2 + 1, % update wins and losses for the teams according to who won
-    NewMD1 is W1 + OldMD1 - W2, NewMD2 is W2 + OldMD2 - W1, % update the map differential for both teams
+    W1 > W2, NewW1 #= OldW1 + 1, NewL2 #= OldL2 + 1, % update wins and losses for the teams according to who won
+    NewMD1 #= W1 + OldMD1 - W2, NewMD2 #= W2 + OldMD2 - W1, % update the map differential for both teams
     updateHeadToHeadLists(OldHtHMD1, OldHtHR1, W1, W2, Team2, NewHtHMD1, NewHtHR1),
     updateHeadToHeadLists(OldHtHMD2, OldHtHR2, W2, W1, Team1, NewHtHMD2, NewHtHR2),
     aWeekOfMatches([record(team(Team1), NewW1, OldL1, NewMD1, NewHtHMD1, NewHtHR1, TieBreakers1),
@@ -132,8 +133,8 @@ aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords, Standings) :-
     Match = [team(Team1), W1, team(Team2), W2, false],
     select(record(team(Team1), OldW1, OldL1, OldMD1, OldHtHMD1, OldHtHR1, TieBreakers1), StartingRecords, UpdatedStartingRecords),
     select(record(team(Team2), OldW2, OldL2, OldMD2, OldHtHMD2, OldHtHR2, TieBreakers2), UpdatedStartingRecords, UpdatedStartingRecords2),
-    W2 > W1, NewW2 is OldW2 + 1, NewL1 is OldL1 + 1, % update wins and losses for the teams according to who won
-    NewMD1 is W1 + OldMD1 - W2, NewMD2 is W2 + OldMD2 - W1, % update the map differential for both teams
+    W2 > W1, NewW2 #= OldW2 + 1, NewL1 #= OldL1 + 1, % update wins and losses for the teams according to who won
+    NewMD1 #= W1 + OldMD1 - W2, NewMD2 #= W2 + OldMD2 - W1, % update the map differential for both teams
     updateHeadToHeadLists(OldHtHMD1, OldHtHR1, W1, W2, Team2, NewHtHMD1, NewHtHR1),
     updateHeadToHeadLists(OldHtHMD2, OldHtHR2, W2, W1, Team1, NewHtHMD2, NewHtHR2),
     aWeekOfMatches([record(team(Team1), OldW1, NewL1, NewMD1, NewHtHMD1, NewHtHR1, TieBreakers1),
@@ -144,13 +145,13 @@ aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords, Standings) :-
     Match = [team(Team1), W1, team(Team2), W2, true],
     W1 > W2,
     select(record(team(Team1), W, L, MD, HtHMD, HtHR, OldTieBreakers), StartingRecords, UpdatedStartingRecords),
-    NewTieBreakers is [Team2|OldTieBreakers],
+    NewTieBreakers #= [Team2|OldTieBreakers],
     aWeekOfMatches([record(team(Team1), W, L, MD, HtHMD, HtHR, NewTieBreakers)|UpdatedStartingRecords], Schedule, EndingRecords, Standings), !.
 aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords, Standings) :-
     Match = [team(Team1), W1, team(Team2), W2, true],
     W2 > W1,
     select(record(team(Team2), W, L, MD, HtHMD, HtHR, OldTieBreakers), StartingRecords, UpdatedStartingRecords),
-    NewTieBreakers is [Team1|OldTieBreakers],
+    NewTieBreakers #= [Team1|OldTieBreakers],
     aWeekOfMatches([record(team(Team2), W, L, MD, HtHMD, HtHR, NewTieBreakers)|UpdatedStartingRecords], Schedule, EndingRecords, Standings), !.
 
 aStageOfMatches(StartingRecords, [Week1, Week2, Week3, Week4, Week5], [Week1Records, Week2Records, Week3Records, Week4Records, EndingRecords], EndingRecords, Standings) :-
@@ -164,7 +165,7 @@ aggregateHeadToHeadMapDiffs([], [], []).
 aggregateHeadToHeadMapDiffs(StageA, StageB, [NewMD|Rest]) :-
     select([Team, MD1], StageA, UpdatedStageA),
     select([Team, MD2], StageB, UpdatedStageB),
-    MD3 is MD1 + MD2,
+    MD3 #= MD1 + MD2,
     NewMD = [Team, MD3],
     aggregateHeadToHeadMapDiffs(UpdatedStageA, UpdatedStageB, Rest).
 
@@ -172,7 +173,7 @@ aggregateHeadToHeadRecords([], [], []).
 aggregateHeadToHeadRecords(StageA, StageB, [NewR|Rest]) :-
     select([Team, R1], StageA, UpdatedStageA),
     select([Team, R2], StageB, UpdatedStageB),
-    R3 is R1 + R2,
+    R3 #= R1 + R2,
     NewR = [Team, R3],
     aggregateHeadToHeadRecords(UpdatedStageA, UpdatedStageB, Rest).
 
@@ -194,9 +195,9 @@ aggregateTeamRecords([], Record, Record).
 aggregateTeamRecords([Record1|Rest], Record2, FinalRecord) :-
     Record1 = record(team(Team), W1, L1, MD1, HtHMD1, HtHR1, _),
     Record2 = record(team(Team), W2, L2, MD2, HtHMD2, HtHR2, _),
-    W3 is W1 + W2,
-    L3 is L1 + L2,
-    MD3 is MD1 + MD2,
+    W3 #= W1 + W2,
+    L3 #= L1 + L2,
+    MD3 #= MD1 + MD2,
     aggregateHeadToHeadMapDiffs(HtHMD1, HtHMD2, HtHMD3),
     aggregateHeadToHeadRecords(HtHR1, HtHR2, HtHR3),
     NewRecord = record(team(Team), W3, L3, MD3, HtHMD3, HtHR3, []),
@@ -221,8 +222,11 @@ extractJsonIndividualMatches([json(Match)|Remaining], [[team(Team1), Score1, tea
     member(t2score = StringScore2, Match),
     translate(Team1, Team1Full),
     translate(Team2, Team2Full),
-    atom_number(StringScore1, Score1),
-    atom_number(StringScore2, Score2),
+    atom_number(StringScore1, Score1Num),
+    atom_number(StringScore2, Score2Num),
+    ( Score1Num = 0, Score2Num = 0 ->
+        print(here), nl, Score1 in 0..4, Score2 in 0..4, ScoreSum #= Score1 + Score2, ScoreSum in 4..5 ;
+        Score1 = Score1Num, Score2 = Score2Num ),
     extractJsonIndividualMatches(Remaining, MatchesRest).
 
 feedJsonMatches([], []).
@@ -249,3 +253,6 @@ extractScheduleFromJson(Json, Matches) :-
     extractJsonStages(Json, Stages),
     extractJsonStageWeeks(Stages, Weeks),
     extractJsonMatches(Weeks, Matches).
+
+%countTeamPaths(Team, Records, Schedule, FinalStandings, Count) :-
+%    .
