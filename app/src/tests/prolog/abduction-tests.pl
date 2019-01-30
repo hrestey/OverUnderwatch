@@ -5,9 +5,10 @@
 
 % Tests for aFullOWLSeason
 
-test(aFullOWLSeason) :-
+%test(aFullOWLSeason) :-
 %tester() :-
-    open('results.json', read, File), json_read(File, Result1), json_read(File, Result2), json_read(File, Result3), json_read(File, Result4),
+testAbduction(OverallRecords, OverallStandings) :-
+    open('abduction-test-data.json', read, File), json_read(File, Result1), json_read(File, Result2), json_read(File, Result3), json_read(File, Result4),
         extractScheduleFromJson([Result1, Result2, Result3, Result4], Schedule),
 
     aFullOWLSeason([record(team(sanfrancisco), 0, 0, 0, [london-(0), houston-(0), dallas-(0), newyork-(0), philadelphia-(0), lavaliant-(0),
@@ -47,7 +48,7 @@ test(aFullOWLSeason) :-
     dallas-(0), lagladiators-(0), shanghai-(0), london-(0)], [boston-(0), philadelphia-(0), florida-(0), seoul-(0), sanfrancisco-(0), houston-(0),
     lavaliant-(0), dallas-(0), lagladiators-(0), shanghai-(0), london-(0)], [none])], Schedule, /*List of StageRecords*/_,
     % OverallRecords
-    [record(team(boston),26,14,28,[dallas-6,florida-13,houston- -3,lagladiators-7,lavaliant-5,london- -3,newyork- -3,philadelphia- -1,sanfrancisco- -2,seoul- -1,shanghai-10],
+    /*[record(team(boston),26,14,28,[dallas-6,florida-13,houston- -3,lagladiators-7,lavaliant-5,london- -3,newyork- -3,philadelphia- -1,sanfrancisco- -2,seoul- -1,shanghai-10],
         [dallas-2,florida-4,houston- -2,lagladiators-3,lavaliant-2,london-0,newyork-0,philadelphia-0,sanfrancisco- -1,seoul-1,shanghai-3],[]),
     record(team(dallas),12,28,-42,[boston- -6,florida-1,houston- -9,lagladiators- -2,lavaliant- -4,london- -2,newyork- -7,philadelphia- -8,sanfrancisco- -6,seoul- -6,shanghai-7],
         [boston- -2,florida- -1,houston- -3,lagladiators-0,lavaliant- -2,london- -1,newyork- -3,philadelphia- -2,sanfrancisco- -2,seoul- -4,shanghai-4],[]),
@@ -83,6 +84,7 @@ test(aFullOWLSeason) :-
     (9,[team(sanfrancisco)]),
     (10,[team(dallas)]),
     (11,[team(florida)]),
-    (12,[team(shanghai)])]).
+    (12,[team(shanghai)])]).*/
+    OverallRecords, OverallStandings).
 
 :- end_tests('../../prolog/stage-structure').
