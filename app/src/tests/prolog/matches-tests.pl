@@ -1,5 +1,5 @@
-:- begin_tests('../../prolog/stage-structure').
-:- ['../../prolog/stage-structure'].
+:- begin_tests('../../prolog/overunderwatch').
+:- ['../../prolog/overunderwatch'].
 
 % Tests for aWeekOfMatches
 % Testing a scenario from week one of stage 3. Tie breakers are considered until map differential, since it isn't the end of the stage
@@ -75,15 +75,7 @@ test(aWeekOfMatches) :-
     record(team(lagladiators),1,1,0,[dallas-(2),sanfrancisco-(-2),london-(0),philadelphia-(0),newyork-(0),houston-(0),lavaliant-(0),seoul-(0),shanghai-(0),boston-(0),
         florida-(0)],[dallas-(1),sanfrancisco-(-1),london-(0),philadelphia-(0),newyork-(0),houston-(0),lavaliant-(0),seoul-(0),shanghai-(0),boston-(0),florida-(0)],[]),
     record(team(dallas),1,1,0,[lagladiators-(-2),shanghai-(2),boston-(0),philadelphia-(0),florida-(0),newyork-(0),sanfrancisco-(0),houston-(0),lavaliant-(0),seoul-(0),
-        london-(0)],[lagladiators-(-1),shanghai-(1),boston-(0),philadelphia-(0),florida-(0),newyork-(0),sanfrancisco-(0),houston-(0),lavaliant-(0),seoul-(0),london-(0)],[])],
-    [(1, [team(lavaliant),team(newyork)]),
-    (3, [team(boston)]),
-    (4, [team(philadelphia)]),
-    (5, [team(dallas),team(lagladiators),team(seoul)]),
-    (8, [team(sanfrancisco)]),
-    (9, [team(houston)]),
-    (10, [team(london)]),
-    (11, [team(florida),team(shanghai)])]).
+        london-(0)],[lagladiators-(-1),shanghai-(1),boston-(0),philadelphia-(0),florida-(0),newyork-(0),sanfrancisco-(0),houston-(0),lavaliant-(0),seoul-(0),london-(0)],[])]).
     % Testing the end of a stage, to test the other tie breakers
 %test(aWeekOfMatches) :-
     %aWeekOfMatches([record(team(boston), 8, 0, 15,
@@ -150,4 +142,4 @@ tester2() :-
     [team(houston), 0, team(boston), 4, false],
     [team(newyork), 4, team(london), 0, false]], X, Y), print(X), print(Y).
 
-:- end_tests('../../prolog/stage-structure').
+:- end_tests('../../prolog/overunderwatch').

@@ -1,16 +1,22 @@
-:- begin_tests('../../prolog/stage-structure').
-:- ['../../prolog/stage-structure'].
+:- begin_tests('../../prolog/overunderwatch').
+:- ['../../prolog/overunderwatch'].
 :- use_module(library(http/json)).
-
 
 % Tests for aFullOWLSeason
 
+% test with only one match
+testAbduction(EndingRecords, Standings) :-
+    Score1 in 0..4, Score2 in 0..4, ScoreSum #= Score1 + Score2, ScoreSum in 2..5,
+    aWeekOfMatches([record(team(boston), 0, 0, 0, [florida-(0)], [florida-(0)], []), record(team(florida), 0, 0, 0, [boston-(0)], [boston-(0)], [])],
+    [[team(boston), Score1, team(florida), Score2, false]], EndingRecords, Standings).
+
 %test(aFullOWLSeason) :-
 %tester() :-
-testAbduction(OverallRecords, OverallStandings) :-
+testAbduction2(OverallRecords, OverallStandings) :-
     open('abduction-test-data.json', read, File), json_read(File, Result1), json_read(File, Result2), json_read(File, Result3), json_read(File, Result4),
         extractScheduleFromJson([Result1, Result2, Result3, Result4], Schedule),
 
+    print(Schedule),
     aFullOWLSeason([record(team(sanfrancisco), 0, 0, 0, [london-(0), houston-(0), dallas-(0), newyork-(0), philadelphia-(0), lavaliant-(0),
     lagladiators-(0), seoul-(0), shanghai-(0), boston-(0), florida-(0)], [london-(0), houston-(0), dallas-(0), newyork-(0), philadelphia-(0), lavaliant-(0),
     lagladiators-(0), seoul-(0), shanghai-(0), boston-(0), florida-(0)], [none]),
@@ -87,4 +93,44 @@ testAbduction(OverallRecords, OverallStandings) :-
     (12,[team(shanghai)])]).*/
     OverallRecords, OverallStandings).
 
-:- end_tests('../../prolog/stage-structure').
+testAbduction3(Records, Standings) :-
+    aStageOfMatches([record(team(sanfrancisco), 0, 0, 0, [london-(0), houston-(0), dallas-(0), newyork-(0), philadelphia-(0), lavaliant-(0),
+    lagladiators-(0), seoul-(0), shanghai-(0), boston-(0), florida-(0)], [london-(0), houston-(0), dallas-(0), newyork-(0), philadelphia-(0), lavaliant-(0),
+    lagladiators-(0), seoul-(0), shanghai-(0), boston-(0), florida-(0)], [none]),
+    record(team(philadelphia), 0, 0, 0, [london-(0), houston-(0), dallas-(0), newyork-(0), sanfrancisco-(0), lavaliant-(0), lagladiators-(0),
+    seoul-(0), shanghai-(0), boston-(0), florida-(0)], [london-(0), houston-(0), dallas-(0), newyork-(0), sanfrancisco-(0), lavaliant-(0),
+    lagladiators-(0), seoul-(0), shanghai-(0), boston-(0), florida-(0)], [none]),
+    record(team(houston), 0, 0, 0, [london-(0), philadelphia-(0), dallas-(0), newyork-(0), sanfrancisco-(0), lavaliant-(0), lagladiators-(0),
+    seoul-(0), shanghai-(0), boston-(0), florida-(0)], [london-(0), philadelphia-(0), dallas-(0), newyork-(0), sanfrancisco-(0), lavaliant-(0),
+    lagladiators-(0), seoul-(0), shanghai-(0), boston-(0), florida-(0)], [none]),
+    record(team(lavaliant), 0, 0, 0, [london-(0), philadelphia-(0), dallas-(0), newyork-(0), sanfrancisco-(0), houston-(0), lagladiators-(0),
+    seoul-(0), shanghai-(0), boston-(0), florida-(0)], [london-(0), philadelphia-(0), dallas-(0), newyork-(0), sanfrancisco-(0), houston-(0),
+    lagladiators-(0), seoul-(0), shanghai-(0), boston-(0), florida-(0)], [none]),
+    record(team(lagladiators), 0, 0, 0, [london-(0), philadelphia-(0), dallas-(0), newyork-(0), sanfrancisco-(0), houston-(0), lavaliant-(0),
+    seoul-(0), shanghai-(0), boston-(0), florida-(0)], [london-(0), philadelphia-(0), dallas-(0), newyork-(0), sanfrancisco-(0), houston-(0),
+    lavaliant-(0), seoul-(0), shanghai-(0), boston-(0), florida-(0)], [none]),
+    record(team(shanghai), 0, 0, 0, [london-(0), philadelphia-(0), dallas-(0), newyork-(0), sanfrancisco-(0), houston-(0), lavaliant-(0),
+    seoul-(0), lagladiators-(0), boston-(0), florida-(0)], [london-(0), philadelphia-(0), dallas-(0), newyork-(0), sanfrancisco-(0), houston-(0),
+    lavaliant-(0), seoul-(0), lagladiators-(0), boston-(0), florida-(0)], [none]),
+    record(team(boston), 0, 0, 0, [london-(0), philadelphia-(0), dallas-(0), newyork-(0), sanfrancisco-(0), houston-(0), lavaliant-(0),
+    seoul-(0), lagladiators-(0), shanghai-(0), florida-(0)], [london-(0), philadelphia-(0), dallas-(0), newyork-(0), sanfrancisco-(0), houston-(0),
+    lavaliant-(0), seoul-(0), lagladiators-(0), shanghai-(0), florida-(0)], [none]),
+    record(team(london), 0, 0, 0, [boston-(0), philadelphia-(0), dallas-(0), newyork-(0), sanfrancisco-(0), houston-(0), lavaliant-(0),
+    seoul-(0), lagladiators-(0), shanghai-(0), florida-(0)], [boston-(0), philadelphia-(0), dallas-(0), newyork-(0), sanfrancisco-(0), houston-(0),
+    lavaliant-(0), seoul-(0), lagladiators-(0), shanghai-(0), florida-(0)], [none]),
+    record(team(florida), 0, 0, 0, [boston-(0), philadelphia-(0), dallas-(0), newyork-(0), sanfrancisco-(0), houston-(0), lavaliant-(0),
+    seoul-(0), lagladiators-(0), shanghai-(0), london-(0)], [boston-(0), philadelphia-(0), dallas-(0), newyork-(0), sanfrancisco-(0), houston-(0),
+    lavaliant-(0), seoul-(0), lagladiators-(0), shanghai-(0), london-(0)], [none]),
+    record(team(dallas), 0, 0, 0, [boston-(0), philadelphia-(0), florida-(0), newyork-(0), sanfrancisco-(0), houston-(0), lavaliant-(0),
+    seoul-(0), lagladiators-(0), shanghai-(0), london-(0)], [boston-(0), philadelphia-(0), florida-(0), newyork-(0), sanfrancisco-(0), houston-(0),
+    lavaliant-(0), seoul-(0), lagladiators-(0), shanghai-(0), london-(0)], [none]),
+    record(team(seoul), 0, 0, 0, [boston-(0), philadelphia-(0), florida-(0), newyork-(0), sanfrancisco-(0), houston-(0), lavaliant-(0),
+    dallas-(0), lagladiators-(0), shanghai-(0), london-(0)], [boston-(0), philadelphia-(0), florida-(0), newyork-(0), sanfrancisco-(0), houston-(0),
+    lavaliant-(0), dallas-(0), lagladiators-(0), shanghai-(0), london-(0)], [none]),
+    record(team(newyork), 0, 0, 0, [boston-(0), philadelphia-(0), florida-(0), seoul-(0), sanfrancisco-(0), houston-(0), lavaliant-(0),
+    dallas-(0), lagladiators-(0), shanghai-(0), london-(0)], [boston-(0), philadelphia-(0), florida-(0), seoul-(0), sanfrancisco-(0), houston-(0),
+    lavaliant-(0), dallas-(0), lagladiators-(0), shanghai-(0), london-(0)], [none])], 
+    [[[team(lagladiators),3,team(sanfrancisco),1,false],[team(seoul),2,team(lavaliant),3,false],[team(dallas),3,team(shanghai),1,false],[team(boston),1,team(philadelphia),3,false],[team(newyork),3,team(florida),0,false],[team(houston),4,team(london),0,false],[team(dallas),0,team(lagladiators),4,false],[team(boston),1,team(houston),3,false],[team(sanfrancisco),3,team(seoul),1,false],[team(philadelphia),4,team(florida),0,false],[team(shanghai),1,team(lavaliant),3,false],[team(london),1,team(newyork),3,false]],[[team(boston),0,team(dallas),3,false],[team(florida),1,team(lavaliant),3,false],[team(houston),1,team(lagladiators),3,false],[team(london),3,team(sanfrancisco),2,false],[team(lagladiators),4,team(florida),0,false],[team(philadelphia),4,team(shanghai),0,false],[team(lavaliant),3,team(boston),2,false],[team(newyork),4,team(seoul),0,false],[team(sanfrancisco),4,team(houston),0,false],[team(seoul),2,team(london),3,false],[team(shanghai),0,team(newyork),4,false],[team(dallas),3,team(philadelphia),1,false]],[[team(newyork),4,team(philadelphia),0,false],[team(seoul),4,team(shanghai),0,false],[team(lavaliant),3,team(lagladiators),0,false],[team(london),2,team(boston),1,false],[team(sanfrancisco),3,team(dallas),1,false],[team(philadelphia),1,team(lagladiators),3,false],[team(houston),3,team(shanghai),0,false],[team(florida),2,team(seoul),3,false],[team(boston),1,team(sanfrancisco),3,false],[team(london),1,team(dallas),3,false],[team(newyork),2,team(lavaliant),3,false],[team(florida),1,team(houston),3,false]],[[team(seoul),1,team(boston),3,false],[team(shanghai),2,team(florida),3,false],[team(dallas),1,team(houston),3,false],[team(lavaliant),2,team(london),1,false],[team(lagladiators),3,team(newyork),2,false],[team(sanfrancisco),1,team(philadelphia),2,false],[team(boston),4,team(shanghai),0,false],[team(florida),0,team(dallas),4,false],[team(philadelphia),3,team(seoul),2,false],[team(london),2,team(lagladiators),3,false],[team(newyork),2,team(sanfrancisco),1,false],[team(houston),0,team(lavaliant),4,false]],[[team(lagladiators),4,team(shanghai),0,false],[team(lavaliant),3,team(sanfrancisco),1,false],[team(seoul),3,team(dallas),1,false],[team(houston),3,team(philadelphia),1,false],[team(florida),0,team(london),4,false],[team(newyork),1,team(boston),3,false],[team(houston),2,team(newyork),3,false],[team(lagladiators),3,team(seoul),1,false],[team(dallas),3,team(lavaliant),1,false],[team(philadelphia),3,team(london),1,false],[team(shanghai),0,team(sanfrancisco),4,false],[team(boston),_11994,team(florida),_12142,false]]], _, Records),
+    teamStandings(Records, Standings).
+
+:- end_tests('../../prolog/overunderwatch').

@@ -1,12 +1,12 @@
-:- begin_tests('../../prolog/stage-structure').
-:- ['../../prolog/stage-structure'].
+:- begin_tests('../../prolog/overunderwatch').
+:- ['../../prolog/overunderwatch'].
 :- use_module(library(http/json)).
 
 
 % Tests for aFullOWLSeason
 
-test(aFullOWLSeason) :-
-%tester() :-
+%test(aFullOWLSeason) :-
+tester() :-
     open('results.json', read, File), json_read(File, Result1), json_read(File, Result2), json_read(File, Result3), json_read(File, Result4),
         extractScheduleFromJson([Result1, Result2, Result3, Result4], Schedule),
 
@@ -85,4 +85,4 @@ test(aFullOWLSeason) :-
     (11,[team(florida)]),
     (12,[team(shanghai)])]).
 
-:- end_tests('../../prolog/stage-structure').
+:- end_tests('../../prolog/overunderwatch').

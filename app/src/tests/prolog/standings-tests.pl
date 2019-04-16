@@ -1,5 +1,5 @@
-:- begin_tests('../../prolog/stage-structure').
-:- ['../../prolog/stage-structure'].
+:- begin_tests('../../prolog/overunderwatch').
+:- ['../../prolog/overunderwatch'].
 
 % test endOfStage, make sure it evaluates as true when wins and losses add to 10
 test(endOfStage) :-
@@ -354,4 +354,4 @@ record(team(florida), 0, 2, -4, [none], [none], [none]),
 record(team(dallas), 0, 2, -1, [none], [none], [none])], X), print(X).
 
 
-:- end_tests('../../prolog/stage-structure').
+:- end_tests('../../prolog/overunderwatch').
