@@ -74,7 +74,9 @@ tied(Record1, Record2) :-
     \+member(Team2, TieBreakers1),
     \+member(Team1, TieBreakers2).
 tied(Record1, Record2) :-
-    Record1 = record(team(_), W1, _, MD1, _, _, _),
+    Record1 = record(team(_), W1, L1, MD1, _, _, _),
+    \+endOfStage(W1, L1),
+    \+endOfSeason(W1, L1),
     Record2 = record(team(_), W1, _, MD1, _, _, _).
 
 groupTeams(Record1, Record2, [Record3|Records], NumTeams, UpdatedNumTeams, RemainingRecords, [team(Team1)|GroupedTeams]) :-
@@ -123,14 +125,14 @@ aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords) :-
     Sum #= W1 + W2,
     %W1 #> W2,
     possibleScores(W1, W2, Sum), 
-    print('T1: '), print(Team1), print(' '), print('T2: '), print(Team2), nl,
-    print('W1: '), print(W1), print(' '), print('W2: '), print(W2), nl,
+    %print('T1: '), print(Team1), print(' '), print('T2: '), print(Team2), nl,
+    %print('W1: '), print(W1), print(' '), print('W2: '), print(W2), nl,
     select(record(team(Team1), OldW1, OldL1, OldMD1, OldHtHMD1, OldHtHR1, TieBreakers1), StartingRecords, UpdatedStartingRecords),
     select(record(team(Team2), OldW2, OldL2, OldMD2, OldHtHMD2, OldHtHR2, TieBreakers2), UpdatedStartingRecords, UpdatedStartingRecords2),
     %W1 > W2, NewW1 #= OldW1 + 1, NewL2 #= OldL2 + 1, % update wins and losses for the teams according to who won
     %NewMD1 #= W1 + OldMD1 - W2, NewMD2 #= W2 + OldMD2 - W1, % update the map differential for both teams
     ( W1 > W2 ->
-        print('Case #1'), nl,
+        %print('Case #1'), nl,
         UpdatedW1 #= OldW1 + 1,
         UpdatedL1 #= OldL1,
         UpdatedMD1 #= W1 + OldMD1 - W2,
@@ -138,7 +140,7 @@ aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords) :-
         UpdatedL2 #= OldL2 + 1,
         UpdatedMD2 #= W2 + OldMD2 - W1
     ;
-        print('Case #2'), nl,
+        %print('Case #2'), nl,
         UpdatedW1 #= OldW1,
         UpdatedL1 #= OldL1 + 1,
         UpdatedMD1 #= W1 + OldMD1 - W2,
@@ -148,6 +150,7 @@ aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords) :-
     ),
     updateHeadToHeadLists(OldHtHMD1, OldHtHR1, W1, W2, Team2, NewHtHMD1, NewHtHR1),
     updateHeadToHeadLists(OldHtHMD2, OldHtHR2, W2, W1, Team1, NewHtHMD2, NewHtHR2),
+    print(record(team(Team1), UpdatedW1, UpdatedL1, UpdatedMD1)), nl,
     aWeekOfMatches([record(team(Team1), UpdatedW1, UpdatedL1, UpdatedMD1, NewHtHMD1, NewHtHR1, TieBreakers1),
         record(team(Team2), UpdatedW2, UpdatedL2, UpdatedMD2, NewHtHMD2, NewHtHR2, TieBreakers2)|UpdatedStartingRecords2], Schedule, EndingRecords).
 /*aWeekOfMatches(StartingRecords, [Match|Schedule], EndingRecords, Standings) :-
@@ -235,9 +238,13 @@ aggregateTeamRecords([Record1|Rest], Record2, FinalRecord) :-
 
 aFullOWLSeason(StartingRecords, [Stage1Schedule, Stage2Schedule, Stage3Schedule, Stage4Schedule], [Stage1Records, Stage2Records, Stage3Records, Stage4Records], OverallRecords, OverallStandings) :-
     aStageOfMatches(StartingRecords, Stage1Schedule, _, Stage1Records),
+    print('End Stage1'), nl,
     aStageOfMatches(StartingRecords, Stage2Schedule, _, Stage2Records),
+    print('End Stage2'), nl,
     aStageOfMatches(StartingRecords, Stage3Schedule, _, Stage3Records),
+    print('End Stage3'), nl,
     aStageOfMatches(StartingRecords, Stage4Schedule, _, Stage4Records),
+    print('End Stage4'), nl,
     % collapse list of lists into list
     append([Stage1Records, Stage2Records, Stage3Records, Stage4Records], AllStageRecords),
     aggregateStageRecords(AllStageRecords, OverallRecords),
@@ -278,8 +285,6 @@ extractJsonStageWeeks([Json|Rest], [Weeks|WeeksRest]) :-
 
 extractJsonStages([], []).
 extractJsonStages([Json|Rest], [Stage|StagesRest]) :-
-    print('Extract Stages'),nl,
-    print(Json),nl,
     Json = json([stage = Stage]), % extract all the matches from each week in the stage
     extractJsonStages(Rest, StagesRest).
 
@@ -288,9 +293,37 @@ extractScheduleFromJson(Json, Matches) :-
     extractJsonStageWeeks(Stages, Weeks),
     extractJsonMatches(Weeks, Matches).
 
-checkTeamRank(Standings, Team, Rank) :- member((Rank, [team(Team)]), Standings).
+checkTeamRankNoTie(Standings, Team, Rank) :- member((Rank, [team(Team)]), Standings).
 
+checkTeamRankTied(Standings, Team, Rank) :- member((Rank, [Teams]), Standings), member(team(Team), Teams).
 
+findScenarioWithTeamStandingForAWeek(StartingRecords, Schedule, Team, Rank, Standings) :-
+    aWeekOfMatches(StartingRecords, Schedule, EndingRecords),
+    teamStandings(EndingRecords, Standings),
+    checkTeamRankNoTie(Standings, Team, Rank).
+
+findScenarioWithTeamStandingForAWeekTied(StartingRecords, Schedule, Team, Rank, Standings) :-
+    aWeekOfMatches(StartingRecords, Schedule, EndingRecords),
+    teamStandings(EndingRecords, Standings),
+    checkTeamRankTied(Standings, Team, Rank).
+
+findScenarioWithTeamStandingForAStage(StartingRecords, Schedule, Team, Rank, Standings) :-
+    aStageOfMatches(StartingRecords, Schedule, _, EndingRecords),
+    teamStandings(EndingRecords, Standings),
+    checkTeamRankNoTie(Standings, Team, Rank).
+
+findScenarioWithTeamStandingForAStageTied(StartingRecords, Schedule, Team, Rank, Standings) :-
+    aStageOfMatches(StartingRecords, Schedule, _, EndingRecords),
+    teamStandings(EndingRecords, Standings),
+    checkTeamRankTied(Standings, Team, Rank).
+
+findScenarioWIthTeamStandingForASeason(StartingRecords, Schedule, Team, Rank, Standings) :-
+    aFullOWLSeason(StartingRecords, Schedule, _, _, Standings),
+    checkTeamRankNoTie(Standings, Team, Rank).
+
+findScenarioWithTeamStandingForASeason(StartingRecords, Schedule, Team, Rank, Standings) :-
+    aFullOWLSeason(StartingRecords, Schedule, _, _, Standings),
+    checkTeamRankTied(Standings, Team, Rank).
 
 %countTeamPaths(Team, Records, Schedule, FinalStandings, Count) :-
 %    .

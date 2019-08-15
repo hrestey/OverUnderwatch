@@ -1,0 +1,384 @@
+{
+  "stage": [
+    {
+      "matches": [
+        {
+          "team1": "Los Angeles Gladiators",
+          "t1score": "3",
+          "team2": "San Francisco Shock",
+          "t2score": "1"
+        },
+        {
+          "team1": "Seoul Dynasty",
+          "t1score": "2",
+          "team2": "Los Angeles Valiant",
+          "t2score": "3"
+        },
+        {
+          "team1": "Dallas Fuel",
+          "t1score": "3",
+          "team2": "Shanghai Dragons",
+          "t2score": "1"
+        },
+        {
+          "team1": "Boston Uprising",
+          "t1score": "1",
+          "team2": "Philadelphia Fusion",
+          "t2score": "3"
+        },
+        {
+          "team1": "New York Excelsior",
+          "t1score": "3",
+          "team2": "Florida Mayhem",
+          "t2score": "0"
+        },
+        {
+          "team1": "Houston Outlaws",
+          "t1score": "4",
+          "team2": "London Spitfire",
+          "t2score": "0"
+        },
+        {
+          "team1": "Dallas Fuel",
+          "t1score": "0",
+          "team2": "Los Angeles Gladiators",
+          "t2score": "4"
+        },
+        {
+          "team1": "Boston Uprising",
+          "t1score": "1",
+          "team2": "Houston Outlaws",
+          "t2score": "3"
+        },
+        {
+          "team1": "San Francisco Shock",
+          "t1score": "3",
+          "team2": "Seoul Dynasty",
+          "t2score": "1"
+        },
+        {
+          "team1": "Philadelphia Fusion",
+          "t1score": "4",
+          "team2": "Florida Mayhem",
+          "t2score": "0"
+        },
+        {
+          "team1": "Shanghai Dragons",
+          "t1score": "1",
+          "team2": "Los Angeles Valiant",
+          "t2score": "3"
+        },
+        {
+          "team1": "London Spitfire",
+          "t1score": "1",
+          "team2": "New York Excelsior",
+          "t2score": "3"
+        }
+      ]
+    },
+    {
+      "matches": [
+        {
+          "team1": "Boston Uprising",
+          "t1score": "0",
+          "team2": "Dallas Fuel",
+          "t2score": "3"
+        },
+        {
+          "team1": "Florida Mayhem",
+          "t1score": "1",
+          "team2": "Los Angeles Valiant",
+          "t2score": "3"
+        },
+        {
+          "team1": "Houston Outlaws",
+          "t1score": "1",
+          "team2": "Los Angeles Gladiators",
+          "t2score": "3"
+        },
+        {
+          "team1": "London Spitfire",
+          "t1score": "3",
+          "team2": "San Francisco Shock",
+          "t2score": "2"
+        },
+        {
+          "team1": "Los Angeles Gladiators",
+          "t1score": "4",
+          "team2": "Florida Mayhem",
+          "t2score": "0"
+        },
+        {
+          "team1": "Philadelphia Fusion",
+          "t1score": "4",
+          "team2": "Shanghai Dragons",
+          "t2score": "0"
+        },
+        {
+          "team1": "Los Angeles Valiant",
+          "t1score": "3",
+          "team2": "Boston Uprising",
+          "t2score": "2"
+        },
+        {
+          "team1": "New York Excelsior",
+          "t1score": "4",
+          "team2": "Seoul Dynasty",
+          "t2score": "0"
+        },
+        {
+          "team1": "San Francisco Shock",
+          "t1score": "4",
+          "team2": "Houston Outlaws",
+          "t2score": "0"
+        },
+        {
+          "team1": "Seoul Dynasty",
+          "t1score": "2",
+          "team2": "London Spitfire",
+          "t2score": "3"
+        },
+        {
+          "team1": "Shanghai Dragons",
+          "t1score": "0",
+          "team2": "New York Excelsior",
+          "t2score": "4"
+        },
+        {
+          "team1": "Dallas Fuel",
+          "t1score": "3",
+          "team2": "Philadelphia Fusion",
+          "t2score": "1"
+        }
+      ]
+    },
+    {
+      "matches": [
+        {
+          "team1": "New York Excelsior",
+          "t1score": "4",
+          "team2": "Philadelphia Fusion",
+          "t2score": "0"
+        },
+        {
+          "team1": "Seoul Dynasty",
+          "t1score": "4",
+          "team2": "Shanghai Dragons",
+          "t2score": "0"
+        },
+        {
+          "team1": "Los Angeles Valiant",
+          "t1score": "3",
+          "team2": "Los Angeles Gladiators",
+          "t2score": "0"
+        },
+        {
+          "team1": "London Spitfire",
+          "t1score": "2",
+          "team2": "Boston Uprising",
+          "t2score": "1"
+        },
+        {
+          "team1": "San Francisco Shock",
+          "t1score": "3",
+          "team2": "Dallas Fuel",
+          "t2score": "1"
+        },
+        {
+          "team1": "Philadelphia Fusion",
+          "t1score": "1",
+          "team2": "Los Angeles Gladiators",
+          "t2score": "3"
+        },
+        {
+          "team1": "Houston Outlaws",
+          "t1score": "3",
+          "team2": "Shanghai Dragons",
+          "t2score": "0"
+        },
+        {
+          "team1": "Florida Mayhem",
+          "t1score": "2",
+          "team2": "Seoul Dynasty",
+          "t2score": "3"
+        },
+        {
+          "team1": "Boston Uprising",
+          "t1score": "1",
+          "team2": "San Francisco Shock",
+          "t2score": "3"
+        },
+        {
+          "team1": "London Spitfire",
+          "t1score": "1",
+          "team2": "Dallas Fuel",
+          "t2score": "3"
+        },
+        {
+          "team1": "New York Excelsior",
+          "t1score": "2",
+          "team2": "Los Angeles Valiant",
+          "t2score": "3"
+        },
+        {
+          "team1": "Florida Mayhem",
+          "t1score": "1",
+          "team2": "Houston Outlaws",
+          "t2score": "3"
+        }
+      ]
+    },
+    {
+      "matches": [
+        {
+          "team1": "Seoul Dynasty",
+          "t1score": "1",
+          "team2": "Boston Uprising",
+          "t2score": "3"
+        },
+        {
+          "team1": "Shanghai Dragons",
+          "t1score": "2",
+          "team2": "Florida Mayhem",
+          "t2score": "3"
+        },
+        {
+          "team1": "Dallas Fuel",
+          "t1score": "1",
+          "team2": "Houston Outlaws",
+          "t2score": "3"
+        },
+        {
+          "team1": "Los Angeles Valiant",
+          "t1score": "2",
+          "team2": "London Spitfire",
+          "t2score": "1"
+        },
+        {
+          "team1": "Los Angeles Gladiators",
+          "t1score": "3",
+          "team2": "New York Excelsior",
+          "t2score": "2"
+        },
+        {
+          "team1": "San Francisco Shock",
+          "t1score": "1",
+          "team2": "Philadelphia Fusion",
+          "t2score": "2"
+        },
+        {
+          "team1": "Boston Uprising",
+          "t1score": "4",
+          "team2": "Shanghai Dragons",
+          "t2score": "0"
+        },
+        {
+          "team1": "Florida Mayhem",
+          "t1score": "0",
+          "team2": "Dallas Fuel",
+          "t2score": "4"
+        },
+        {
+          "team1": "Philadelphia Fusion",
+          "t1score": "3",
+          "team2": "Seoul Dynasty",
+          "t2score": "2"
+        },
+        {
+          "team1": "London Spitfire",
+          "t1score": "2",
+          "team2": "Los Angeles Gladiators",
+          "t2score": "3"
+        },
+        {
+          "team1": "New York Excelsior",
+          "t1score": "2",
+          "team2": "San Francisco Shock",
+          "t2score": "1"
+        },
+        {
+          "team1": "Houston Outlaws",
+          "t1score": "0",
+          "team2": "Los Angeles Valiant",
+          "t2score": "4"
+        }
+      ]
+    },
+    {
+      "matches": [
+        {
+          "team1": "Los Angeles Gladiators",
+          "t1score": "4",
+          "team2": "Shanghai Dragons",
+          "t2score": "0"
+        },
+        {
+          "team1": "Los Angeles Valiant",
+          "t1score": "3",
+          "team2": "San Francisco Shock",
+          "t2score": "1"
+        },
+        {
+          "team1": "Seoul Dynasty",
+          "t1score": "3",
+          "team2": "Dallas Fuel",
+          "t2score": "1"
+        },
+        {
+          "team1": "Houston Outlaws",
+          "t1score": "3",
+          "team2": "Philadelphia Fusion",
+          "t2score": "1"
+        },
+        {
+          "team1": "Florida Mayhem",
+          "t1score": "0",
+          "team2": "London Spitfire",
+          "t2score": "4"
+        },
+        {
+          "team1": "New York Excelsior",
+          "t1score": "1",
+          "team2": "Boston Uprising",
+          "t2score": "3"
+        },
+        {
+          "team1": "Houston Outlaws",
+          "t1score": "2",
+          "team2": "New York Excelsior",
+          "t2score": "3"
+        },
+        {
+          "team1": "Los Angeles Gladiators",
+          "t1score": "3",
+          "team2": "Seoul Dynasty",
+          "t2score": "1"
+        },
+        {
+          "team1": "Dallas Fuel",
+          "t1score": "3",
+          "team2": "Los Angeles Valiant",
+          "t2score": "1"
+        },
+        {
+          "team1": "Philadelphia Fusion",
+          "t1score": "3",
+          "team2": "London Spitfire",
+          "t2score": "1"
+        },
+        {
+          "team1": "Shanghai Dragons",
+          "t1score": "0",
+          "team2": "San Francisco Shock",
+          "t2score": "4"
+        },
+        {
+          "team1": "Boston Uprising",
+          "t1score": "0",
+          "team2": "Florida Mayhem",
+          "t2score": "0"
+        }
+      ]
+    }
+  ]
+}
